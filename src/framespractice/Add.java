@@ -7,7 +7,6 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.text.DecimalFormat;
 import javafx.stage.Screen;
 import javax.swing.JOptionPane;
 
@@ -26,10 +25,6 @@ public class Add extends javax.swing.JFrame {
         int x = dm.width / 2 - this.getWidth() / 2;
         int y = dm.height / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
-    }
-
-    public void m(String s) {
-        JOptionPane.showMessageDialog(rootPane, "The " + s + " is empty");
     }
 
     /**
@@ -178,19 +173,10 @@ public class Add extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
-        if ((num1.getText() == "" || num1.getText() == null) || (num2.getText() == "" || num2.getText() == null)) {
-            if ((num1.getText() == "" || num1.getText() == null)) {
-                m("Number1");
-            }
-            if ((num2.getText() == "" || num2.getText() == null)) {
-                m("Number2");
-            }
-        } else {
-            int a = Integer.parseInt(num1.getText());
-            int b = Integer.parseInt(num2.getText());
-            int c = a + b;
-            result.setText(c + "");      
-        }
+        int a = Integer.parseInt(num1.getText());
+        int b = Integer.parseInt(num2.getText());
+        int c = a + b;
+        result.setText(c + "");
     }//GEN-LAST:event_calcActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
@@ -200,7 +186,11 @@ public class Add extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(rootPane, "Are sure you want exit?", "Confirm", JOptionPane.YES_NO_OPTION, 1) == 0) {
+            System.exit(1);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Contnue calculating");
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     /**
