@@ -23,7 +23,7 @@ public class Add extends javax.swing.JFrame {
         Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
         int x = dm.width / 2 - this.getWidth() / 2;
         int y = dm.height / 2 - this.getHeight() / 2;
-        this.setLocation(x,y);
+        this.setLocation(x, y);
     }
 
     /**
@@ -176,7 +176,9 @@ public class Add extends javax.swing.JFrame {
     }//GEN-LAST:event_calcActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        // TODO add your handling code here:
+        num1.setText("");
+        num2.setText("");
+        result.setText(null);
     }//GEN-LAST:event_refreshActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
