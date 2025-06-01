@@ -7,6 +7,7 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
 import javafx.stage.Screen;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,8 @@ import javax.swing.JOptionPane;
  * @author Prosper
  */
 public class Add extends javax.swing.JFrame {
+
+    String caseAt = "Integers";
 
     /**
      * Creates new form Add
@@ -25,6 +28,20 @@ public class Add extends javax.swing.JFrame {
         int x = dm.width / 2 - this.getWidth() / 2;
         int y = dm.height / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
+    }
+
+    public void switchCase() {
+        if (atcase.getText() == "Integers") {
+            atcase.setText("Decimals");
+            result.setText("0.00");
+            caseAt = "Decimals";
+        } else {
+            atcase.setText("Integers");
+            result.setText("0");
+            caseAt = "Integers";
+        }
+        num1.setText("");
+        num2.setText("");
     }
 
     /**
@@ -46,6 +63,8 @@ public class Add extends javax.swing.JFrame {
         calc = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
         exit = new javax.swing.JButton();
+        switchUp = new javax.swing.JButton();
+        atcase = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,6 +81,7 @@ public class Add extends javax.swing.JFrame {
         num2.setToolTipText("Enter first number");
 
         result.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        result.setText("0");
         result.setToolTipText("Enter first number");
         result.setEnabled(false);
 
@@ -103,6 +123,24 @@ public class Add extends javax.swing.JFrame {
             }
         });
 
+        switchUp.setBackground(new java.awt.Color(102, 0, 204));
+        switchUp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        switchUp.setForeground(new java.awt.Color(255, 255, 255));
+        switchUp.setText("Switch");
+        switchUp.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                switchUpComponentAdded(evt);
+            }
+        });
+        switchUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                switchUpActionPerformed(evt);
+            }
+        });
+
+        atcase.setForeground(new java.awt.Color(255, 255, 255));
+        atcase.setText("Integers");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,28 +156,39 @@ public class Add extends javax.swing.JFrame {
                                 .addComponent(jLabel3))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(num1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                                .addComponent(num2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                .addComponent(num1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(num2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(158, 158, 158)
-                            .addComponent(exit))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addGap(8, 8, 8)
-                            .addComponent(calc)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(refresh))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(switchUp)
+                                .addComponent(calc))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(refresh))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(33, 33, 33)
+                                    .addComponent(exit))))))
                 .addGap(44, 44, 44))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(54, 61, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(52, 52, 52))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(atcase)
+                        .addGap(138, 138, 138))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
+                .addGap(12, 12, 12)
+                .addComponent(atcase)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(num2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -154,7 +203,9 @@ public class Add extends javax.swing.JFrame {
                     .addComponent(calc, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(switchUp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -173,10 +224,18 @@ public class Add extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
-        int a = Integer.parseInt(num1.getText());
-        int b = Integer.parseInt(num2.getText());
-        int c = a + b;
-        result.setText(c + "");
+        DecimalFormat df = new DecimalFormat("0.00");
+        if (caseAt == "Integers") {
+            int a = Integer.parseInt(num1.getText());
+            int b = Integer.parseInt(num2.getText());
+            int c = a + b;
+            result.setText(c + "");
+        } else {
+            double a1 = Double.parseDouble(num1.getText());
+            double a2 = Double.parseDouble(num2.getText());
+            double c1 = a1 + a2;
+            result.setText(df.format(c1));
+        }
     }//GEN-LAST:event_calcActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
@@ -192,6 +251,14 @@ public class Add extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Contnue calculating");
         }
     }//GEN-LAST:event_exitActionPerformed
+
+    private void switchUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_switchUpActionPerformed
+        switchCase();
+    }//GEN-LAST:event_switchUpActionPerformed
+
+    private void switchUpComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_switchUpComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_switchUpComponentAdded
 
     /**
      * @param args the command line arguments
@@ -229,6 +296,7 @@ public class Add extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel atcase;
     private javax.swing.JButton calc;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
@@ -239,5 +307,6 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JTextField num2;
     private javax.swing.JButton refresh;
     private javax.swing.JTextField result;
+    private javax.swing.JButton switchUp;
     // End of variables declaration//GEN-END:variables
 }
