@@ -15,8 +15,10 @@ public class FramesPractice {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        CalculateHypotenuse ch = new CalculateHypotenuse();
-        ch.setVisible(true);
+//        CalculateHypotenuse ch = new CalculateHypotenuse();
+//        ch.setVisible(true);
+        Add ad = new Add();
+        ad.setVisible(true);
     }
 
 }

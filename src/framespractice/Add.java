@@ -8,7 +8,6 @@ package framespractice;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.text.DecimalFormat;
-import javafx.stage.Screen;
 import javax.swing.JOptionPane;
 
 /**
