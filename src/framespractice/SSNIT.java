@@ -177,7 +177,19 @@ public class SSNIT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void extractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractActionPerformed
+        String y, m, d, dob, rdate, ssnitNum;
+        ssnitNum = ssnit.getText();
         extract.setEnabled(false);
+        y = ssnitNum.substring(3, 5);
+        if (Integer.parseInt(y) <= 25) {
+            y = "20" + y;
+        } else {
+            y = "19" + y;
+        }
+        m = ssnitNum.substring(5, 7);
+        d = ssnitNum.substring(7,9);
+        dob = y + "-" + m + "-" + d;
+        bd.setText(dob);
     }//GEN-LAST:event_extractActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
