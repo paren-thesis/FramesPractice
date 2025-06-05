@@ -43,6 +43,23 @@ public class Add extends javax.swing.JFrame {
         num2.setText("");
     }
 
+    public int addInt(String num1, String num2) {
+        int a, b, c;
+        c = 0;
+        a = Integer.parseInt(num1);
+        b = Integer.parseInt(num2);
+        try {
+            if (a < 0 || b < 0) {
+                JOptionPane.showMessageDialog(rootPane, "Input cannot be negative");
+            } else {
+                c = a + b;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Invalid Input");
+        }
+        return c;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -224,11 +241,8 @@ public class Add extends javax.swing.JFrame {
 
     private void calcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcActionPerformed
         DecimalFormat df = new DecimalFormat("0.00");
-        if (caseAt == "Integers") {
-            int a = Integer.parseInt(num1.getText());
-            int b = Integer.parseInt(num2.getText());
-            int c = a + b;
-            result.setText(c + "");
+        if (caseAt.equals("Integers")) {
+            result.setText(addInt(num1.getText(), num2.getText())+ "");
         } else {
             double a1 = Double.parseDouble(num1.getText());
             double a2 = Double.parseDouble(num2.getText());
@@ -245,7 +259,7 @@ public class Add extends javax.swing.JFrame {
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         if (JOptionPane.showConfirmDialog(rootPane, "Are sure you want exit?", "Confirm", JOptionPane.YES_NO_OPTION, 1) == 0) {
-            System.exit(1);
+            System.exit(0);
         } else {
             JOptionPane.showMessageDialog(rootPane, "Contnue calculating");
         }

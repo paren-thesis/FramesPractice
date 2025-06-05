@@ -38,11 +38,11 @@ public class HypoCalc extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        textes = new javax.swing.JLabel();
+        hhh = new javax.swing.JLabel();
+        res = new javax.swing.JLabel();
         height = new javax.swing.JTextField();
         width = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        www = new javax.swing.JLabel();
         result = new javax.swing.JTextField();
         calculate = new javax.swing.JButton();
         refresh = new javax.swing.JButton();
@@ -55,18 +55,18 @@ public class HypoCalc extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Calculate Hypotenuse");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Height");
+        hhh.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        hhh.setText("Height");
 
-        textes.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        textes.setText("Result");
+        res.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        res.setText("Result");
 
         height.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
 
         width.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setText("Width");
+        www.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        www.setText("Width");
 
         result.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         result.setEnabled(false);
@@ -111,12 +111,12 @@ public class HypoCalc extends javax.swing.JFrame {
                         .addComponent(refresh)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(hhh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(height, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(textes)
+                        .addComponent(res)
                         .addGap(127, 127, 127)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -138,7 +138,7 @@ public class HypoCalc extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(48, 48, 48)
-                    .addComponent(jLabel4)
+                    .addComponent(www)
                     .addContainerGap(242, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,12 +148,12 @@ public class HypoCalc extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(hhh)
                     .addComponent(height, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(59, 59, 59)
                 .addComponent(width, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(textes)
+                .addComponent(res)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(result, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
@@ -166,7 +166,7 @@ public class HypoCalc extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(182, 182, 182)
-                    .addComponent(jLabel4)
+                    .addComponent(www)
                     .addContainerGap(283, Short.MAX_VALUE)))
         );
 
@@ -259,13 +259,13 @@ public class HypoCalc extends javax.swing.JFrame {
     private javax.swing.JButton calculate;
     private javax.swing.JButton exit;
     private javax.swing.JTextField height;
+    private javax.swing.JLabel hhh;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton refresh;
+    private javax.swing.JLabel res;
     private javax.swing.JTextField result;
-    private javax.swing.JLabel textes;
     private javax.swing.JTextField width;
+    private javax.swing.JLabel www;
     // End of variables declaration//GEN-END:variables
 }
