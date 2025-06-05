@@ -7,6 +7,7 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
@@ -61,6 +62,11 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel1.setText("SSNIT:");
 
         ssnit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        ssnit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ssnitFocusLost(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Birth Date:");
@@ -181,6 +187,7 @@ public class SSNIT extends javax.swing.JFrame {
         ssnitNum = ssnit.getText();
         extract.setEnabled(false);
         y = ssnitNum.substring(3, 5);
+        // Check year
         if (Integer.parseInt(y) <= 25) {
             y = "20" + y;
         } else {
@@ -189,7 +196,17 @@ public class SSNIT extends javax.swing.JFrame {
         m = ssnitNum.substring(5, 7);
         d = ssnitNum.substring(7,9);
         dob = y + "-" + m + "-" + d;
+        // Calculate Age
+        LocalDate bd1, rd1; int age1;
+        bd1 = LocalDate.parse(dob);
+        age1 = LocalDate.now().getYear() - bd1.getYear();
+        rd1 = bd1.plusYears(60);
+        String dow = bd1.getDayOfWeek().name();
+        
         bd.setText(dob);
+        age.setText(age1 + "");
+        rd.setText(rd1.toString());
+        JOptionPane.showMessageDialog(rootPane, dow);
     }//GEN-LAST:event_extractActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -213,6 +230,18 @@ public class SSNIT extends javax.swing.JFrame {
         ssnit.setText("");
         extract.setEnabled(true);
     }//GEN-LAST:event_refreshActionPerformed
+
+    private void ssnitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ssnitFocusLost
+        if (ssnit.getText().length() != 0) {
+            String ss = ssnit.getText();
+            if (ssnit.getText().length() == 13 && Character.isLetter(ss.charAt(0))) {
+                //Do nothing
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number");
+                ssnit.grabFocus();
+            }
+        }
+    }//GEN-LAST:event_ssnitFocusLost
 
     /**
      * @param args the command line arguments
