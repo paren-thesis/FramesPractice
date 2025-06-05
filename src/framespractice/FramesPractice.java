@@ -17,8 +17,10 @@ public class FramesPractice {
     public static void main(String[] args) {
 //        CalculateHypotenuse ch = new CalculateHypotenuse();
 //        ch.setVisible(true);
-        Add ad = new Add();
-        ad.setVisible(true);
+//        Add ad = new Add();
+//        ad.setVisible(true);
+        SSNIT ss = new SSNIT();
+        ss.setVisible(true);
     }
 
 }
