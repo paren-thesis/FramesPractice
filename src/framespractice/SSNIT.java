@@ -182,30 +182,31 @@ public class SSNIT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void extractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractActionPerformed
-        String y, m, d, dob, rdate, ssnitNum;
-        ssnitNum = editSSNIT.getText();
+        String year, month, day, birthDate, retirementDate, ssnitNumber;
+        ssnitNumber = editSSNIT.getText();
         extract.setEnabled(false);
-        y = ssnitNum.substring(3, 5);
+        year = ssnitNumber.substring(3, 5);
         // Check year
-        if (Integer.parseInt(y) <= 25) {
-            y = "20" + y;
+        if (Integer.parseInt(year) <= 25) {
+            year = "20" + year;
         } else {
-            y = "19" + y;
+            year = "19" + year;
         }
-        m = ssnitNum.substring(5, 7);
-        d = ssnitNum.substring(7,9);
-        dob = y + "-" + m + "-" + d;
+        month = ssnitNumber.substring(5, 7);
+        day = ssnitNumber.substring(7,9);
+        birthDate = year + "-" + month + "-" + day;
         // Calculate Age
-        LocalDate bd1, rd1; int age1;
-        bd1 = LocalDate.parse(dob);
-        age1 = LocalDate.now().getYear() - bd1.getYear();
-        rd1 = bd1.plusYears(60);
-        String dow = bd1.getDayOfWeek().name();
+        LocalDate birthDateObj, retirementDateObj; 
+        int currentAge;
+        birthDateObj = LocalDate.parse(birthDate);
+        currentAge = LocalDate.now().getYear() - birthDateObj.getYear();
+        retirementDateObj = birthDateObj.plusYears(60);
+        String dayOfWeek = birthDateObj.getDayOfWeek().name();
         
-        showBirthDate.setText(dob);
-        showAge.setText(age1 + "");
-        showRetire.setText(rd1.toString());
-        JOptionPane.showMessageDialog(rootPane, dow);
+        showBirthDate.setText(birthDate);
+        showAge.setText(currentAge + "");
+        showRetire.setText(retirementDateObj.toString());
+        JOptionPane.showMessageDialog(rootPane, dayOfWeek);
     }//GEN-LAST:event_extractActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
