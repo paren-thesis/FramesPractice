@@ -19,8 +19,10 @@ public class FramesPractice {
 //        ch.setVisible(true);
 //        Add ad = new Add();
 //        ad.setVisible(true);
-        SSNIT ss = new SSNIT();
-        ss.setVisible(true);
+//        SSNIT ss = new SSNIT();
+//        ss.setVisible(true);
+        JuiceBar jb = new JuiceBar();
+        jb.setVisible(true);
     }
 
 }
