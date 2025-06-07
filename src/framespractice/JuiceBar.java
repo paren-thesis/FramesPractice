@@ -7,6 +7,7 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,33 +44,33 @@ public class JuiceBar extends javax.swing.JFrame {
         fruitRadio = new javax.swing.JRadioButton();
         veggieRadio = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        veggieRadio1 = new javax.swing.JRadioButton();
-        fruitRadio1 = new javax.swing.JRadioButton();
-        veggieRadio2 = new javax.swing.JRadioButton();
+        strawRadio = new javax.swing.JRadioButton();
+        pomeRadio = new javax.swing.JRadioButton();
+        berryRadio = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        energyCheck = new javax.swing.JCheckBox();
+        ladiesCheck = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        price = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        cost = new javax.swing.JLabel();
+        subTotal = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        tax = new javax.swing.JLabel();
+        amountDate = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        equantity = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        editQuantity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        addToOrder = new javax.swing.JButton();
+        orderComplete = new javax.swing.JButton();
+        summeryReport = new javax.swing.JButton();
+        newButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -79,6 +80,7 @@ public class JuiceBar extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setAutoscrolls(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -105,20 +107,20 @@ public class JuiceBar extends javax.swing.JFrame {
         jLabel4.setText("Smoothies");
         jLabel4.setToolTipText("");
 
-        veggieRadio1.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(veggieRadio1);
-        veggieRadio1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        veggieRadio1.setText("Strawberry");
+        strawRadio.setBackground(new java.awt.Color(255, 255, 255));
+        smoothiesSelection.add(strawRadio);
+        strawRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        strawRadio.setText("Strawberry");
 
-        fruitRadio1.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(fruitRadio1);
-        fruitRadio1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        fruitRadio1.setText("Pomegranate");
+        pomeRadio.setBackground(new java.awt.Color(255, 255, 255));
+        smoothiesSelection.add(pomeRadio);
+        pomeRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        pomeRadio.setText("Pomegranate");
 
-        veggieRadio2.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(veggieRadio2);
-        veggieRadio2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        veggieRadio2.setText("White Berry");
+        berryRadio.setBackground(new java.awt.Color(255, 255, 255));
+        smoothiesSelection.add(berryRadio);
+        berryRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        berryRadio.setText("White Berry");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("Juices");
@@ -134,9 +136,9 @@ public class JuiceBar extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(veggieRadio1)
-                            .addComponent(fruitRadio1)
-                            .addComponent(veggieRadio2)
+                            .addComponent(strawRadio)
+                            .addComponent(pomeRadio)
+                            .addComponent(berryRadio)
                             .addComponent(jLabel4))))
                 .addGap(0, 24, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -156,17 +158,17 @@ public class JuiceBar extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fruitRadio)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(veggieRadio)
-                .addGap(40, 40, 40)
+                .addGap(31, 31, 31)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fruitRadio1)
-                .addGap(10, 10, 10)
-                .addComponent(veggieRadio1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(veggieRadio2)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(pomeRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(strawRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(berryRadio)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -176,11 +178,13 @@ public class JuiceBar extends javax.swing.JFrame {
         jLabel5.setText("Extra - 5.00 Each");
         jLabel5.setToolTipText("");
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Energy Booster");
+        energyCheck.setBackground(new java.awt.Color(255, 255, 255));
+        energyCheck.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        energyCheck.setText("Energy Booster");
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("For The Ladies");
+        ladiesCheck.setBackground(new java.awt.Color(255, 255, 255));
+        ladiesCheck.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        ladiesCheck.setText("For The Ladies");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -189,9 +193,9 @@ public class JuiceBar extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(energyCheck)
                     .addComponent(jLabel5)
-                    .addComponent(jCheckBox2))
+                    .addComponent(ladiesCheck))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -200,78 +204,92 @@ public class JuiceBar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox1)
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox2)
+                .addComponent(energyCheck)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ladiesCheck)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel6.setText("Price: ");
 
-        jLabel7.setBackground(new java.awt.Color(255, 102, 51));
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("0.00");
+        price.setBackground(new java.awt.Color(255, 255, 255));
+        price.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        price.setForeground(new java.awt.Color(255, 187, 52));
+        price.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        price.setText("0.00");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel8.setText("Quantity:");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel10.setText("Cost");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("$0.00");
+        cost.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        cost.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cost.setText("$0.00");
 
-        jLabel12.setBackground(new java.awt.Color(255, 187, 52));
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("$0.00");
+        subTotal.setBackground(new java.awt.Color(255, 187, 52));
+        subTotal.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        subTotal.setForeground(new java.awt.Color(152, 203, 2));
+        subTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        subTotal.setText("$0.00");
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel13.setText("Sub Total");
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel14.setText("Tax (3.5%)");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("$0.00");
+        tax.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        tax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tax.setText("$0.00");
 
-        jLabel16.setBackground(new java.awt.Color(255, 187, 52));
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("$0.00");
+        amountDate.setBackground(new java.awt.Color(255, 187, 52));
+        amountDate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        amountDate.setForeground(new java.awt.Color(152, 203, 2));
+        amountDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        amountDate.setText("$0.00");
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel17.setText("Amount Due:");
 
-        equantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        editQuantity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        editQuantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        editQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editQuantityKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel10)
+                            .addComponent(jLabel8)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel17))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(editQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tax, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(amountDate, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(equantity)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(3, 3, 3))
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -285,63 +303,110 @@ public class JuiceBar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(price))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(equantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(cost))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel13)
-                            .addComponent(jLabel12))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(subTotal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(18, 18, 18)
+                            .addComponent(tax))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jLabel16))))
+                            .addComponent(amountDate))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Pictures\\Saved Pictures\\crest.jpg")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel2.setText("HTU Juice Bar");
 
-        jButton1.setBackground(new java.awt.Color(98, 0, 239));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("ADD TO ORDER");
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setBackground(new java.awt.Color(98, 0, 239));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton2.setText("ORDER COMPLETE");
+        addToOrder.setBackground(new java.awt.Color(98, 0, 239));
+        addToOrder.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        addToOrder.setForeground(new java.awt.Color(255, 255, 255));
+        addToOrder.setText("ADD TO ORDER");
 
-        jButton3.setBackground(new java.awt.Color(98, 0, 239));
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton3.setText("SUMMERY REPORT");
-
-        jButton4.setBackground(new java.awt.Color(98, 0, 239));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("NEW");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        orderComplete.setBackground(new java.awt.Color(98, 0, 239));
+        orderComplete.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        orderComplete.setForeground(new java.awt.Color(255, 255, 255));
+        orderComplete.setText("ORDER COMPLETE");
+        orderComplete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                orderCompleteActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(98, 0, 239));
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("EXIT");
+        summeryReport.setBackground(new java.awt.Color(98, 0, 239));
+        summeryReport.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        summeryReport.setForeground(new java.awt.Color(255, 255, 255));
+        summeryReport.setText("SUMMERY REPORT");
+        summeryReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                summeryReportActionPerformed(evt);
+            }
+        });
+
+        newButton.setBackground(new java.awt.Color(98, 0, 239));
+        newButton.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        newButton.setForeground(new java.awt.Color(255, 255, 255));
+        newButton.setText("NEW");
+        newButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton.setBackground(new java.awt.Color(98, 0, 239));
+        exitButton.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 255, 255));
+        exitButton.setText("EXIT");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 56, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(newButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(exitButton))
+                    .addComponent(summeryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(orderComplete, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(addToOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(orderComplete, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(summeryReport, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(newButton, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -351,58 +416,40 @@ public class JuiceBar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                .addContainerGap(11, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -410,12 +457,37 @@ public class JuiceBar extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         noSelection.setSelected(true);
-        equantity.grabFocus();
+        editQuantity.grabFocus();
+        orderComplete.setEnabled(false);
+        summeryReport.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
+        smoothiesSelection.clearSelection();
+        juicesSelection.clearSelection();
+        editQuantity.setText("");
+        editQuantity.grabFocus();
+    }//GEN-LAST:event_newButtonActionPerformed
+
+    private void orderCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderCompleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_orderCompleteActionPerformed
+
+    private void summeryReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summeryReportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_summeryReportActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE) == 0) {
+            System.exit(0);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Continue ordering");
+        }
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void editQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editQuantityKeyTyped
+
+    }//GEN-LAST:event_editQuantityKeyTyped
 
     /**
      * @param args the command line arguments
@@ -453,41 +525,41 @@ public class JuiceBar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField equantity;
+    private javax.swing.JButton addToOrder;
+    private javax.swing.JLabel amountDate;
+    private javax.swing.JRadioButton berryRadio;
+    private javax.swing.JLabel cost;
+    private javax.swing.JTextField editQuantity;
+    private javax.swing.JCheckBox energyCheck;
+    private javax.swing.JButton exitButton;
     private javax.swing.JRadioButton fruitRadio;
-    private javax.swing.JRadioButton fruitRadio1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.ButtonGroup juicesSelection;
+    private javax.swing.JCheckBox ladiesCheck;
+    private javax.swing.JButton newButton;
     private javax.swing.JRadioButton noSelection;
+    private javax.swing.JButton orderComplete;
+    private javax.swing.JRadioButton pomeRadio;
+    private javax.swing.JLabel price;
     private javax.swing.ButtonGroup smoothiesSelection;
+    private javax.swing.JRadioButton strawRadio;
+    private javax.swing.JLabel subTotal;
+    private javax.swing.JButton summeryReport;
+    private javax.swing.JLabel tax;
     private javax.swing.JRadioButton veggieRadio;
-    private javax.swing.JRadioButton veggieRadio1;
-    private javax.swing.JRadioButton veggieRadio2;
     // End of variables declaration//GEN-END:variables
 }
