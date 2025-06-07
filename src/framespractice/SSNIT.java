@@ -38,12 +38,12 @@ public class SSNIT extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        ssnit = new javax.swing.JTextField();
+        editSSNIT = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        bd = new javax.swing.JTextField();
+        showBirthDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        age = new javax.swing.JTextField();
-        rd = new javax.swing.JTextField();
+        showAge = new javax.swing.JTextField();
+        showRetire = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         extract = new javax.swing.JButton();
         exit = new javax.swing.JButton();
@@ -61,24 +61,24 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("SSNIT:");
 
-        ssnit.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        ssnit.addFocusListener(new java.awt.event.FocusAdapter() {
+        editSSNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        editSSNIT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                ssnitFocusLost(evt);
+                editSSNITFocusLost(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Birth Date:");
 
-        bd.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        showBirthDate.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel6.setText("Age:");
 
-        age.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        showAge.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
-        rd.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        showRetire.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel7.setText("Ret. Date:");
@@ -120,11 +120,11 @@ public class SSNIT extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addComponent(bd, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(showBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ssnit, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(editSSNIT, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(extract)
@@ -135,9 +135,8 @@ public class SSNIT extends javax.swing.JFrame {
                                 .addComponent(refresh)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addComponent(exit))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                .addComponent(rd)))
+                            .addComponent(showAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                            .addComponent(showRetire, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(37, 37, 37)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -147,19 +146,19 @@ public class SSNIT extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(ssnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(editSSNIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(bd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(showBirthDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(showAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(rd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(showRetire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(89, 89, 89)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(extract, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,7 +183,7 @@ public class SSNIT extends javax.swing.JFrame {
 
     private void extractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractActionPerformed
         String y, m, d, dob, rdate, ssnitNum;
-        ssnitNum = ssnit.getText();
+        ssnitNum = editSSNIT.getText();
         extract.setEnabled(false);
         y = ssnitNum.substring(3, 5);
         // Check year
@@ -203,16 +202,16 @@ public class SSNIT extends javax.swing.JFrame {
         rd1 = bd1.plusYears(60);
         String dow = bd1.getDayOfWeek().name();
         
-        bd.setText(dob);
-        age.setText(age1 + "");
-        rd.setText(rd1.toString());
+        showBirthDate.setText(dob);
+        showAge.setText(age1 + "");
+        showRetire.setText(rd1.toString());
         JOptionPane.showMessageDialog(rootPane, dow);
     }//GEN-LAST:event_extractActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        bd.setEnabled(false);
-        age.setEnabled(false);
-        rd.setEnabled(false);
+        showBirthDate.setEnabled(false);
+        showAge.setEnabled(false);
+        showRetire.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -224,24 +223,24 @@ public class SSNIT extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-        age.setText("");
-        bd.setText("");
-        rd.setText("");
-        ssnit.setText("");
+        showAge.setText("");
+        showBirthDate.setText("");
+        showRetire.setText("");
+        editSSNIT.setText("");
         extract.setEnabled(true);
     }//GEN-LAST:event_refreshActionPerformed
 
-    private void ssnitFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ssnitFocusLost
-        if (ssnit.getText().length() != 0) {
-            String ss = ssnit.getText();
-            if (ssnit.getText().length() == 13 && Character.isLetter(ss.charAt(0))) {
+    private void editSSNITFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editSSNITFocusLost
+        if (editSSNIT.getText().length() != 0) {
+            String ss = editSSNIT.getText();
+            if (editSSNIT.getText().length() == 13 && Character.isLetter(ss.charAt(0))) {
                 //Do nothing
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number");
-                ssnit.grabFocus();
+                editSSNIT.grabFocus();
             }
         }
-    }//GEN-LAST:event_ssnitFocusLost
+    }//GEN-LAST:event_editSSNITFocusLost
 
     /**
      * @param args the command line arguments
@@ -279,8 +278,7 @@ public class SSNIT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField age;
-    private javax.swing.JTextField bd;
+    private javax.swing.JTextField editSSNIT;
     private javax.swing.JButton exit;
     private javax.swing.JButton extract;
     private javax.swing.JLabel jLabel1;
@@ -288,8 +286,9 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField rd;
     private javax.swing.JButton refresh;
-    private javax.swing.JTextField ssnit;
+    private javax.swing.JTextField showAge;
+    private javax.swing.JTextField showBirthDate;
+    private javax.swing.JTextField showRetire;
     // End of variables declaration//GEN-END:variables
 }
