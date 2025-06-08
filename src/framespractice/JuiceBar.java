@@ -90,7 +90,7 @@ public class JuiceBar extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         noSelection.setBackground(new java.awt.Color(255, 255, 255));
-        noSelection.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        noSelection.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         noSelection.setText("No Selection");
 
         fruitRadio.setBackground(new java.awt.Color(255, 255, 255));
