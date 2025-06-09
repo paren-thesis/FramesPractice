@@ -24,6 +24,8 @@ public class JuiceBar extends javax.swing.JFrame {
         int x = dm.width / 2 - this.getWidth() / 2;
         int y = dm.height / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
+        this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("crest.jpg")));
+        this.setTitle("HTU Juice Bar");
     }
 
     /**
@@ -83,11 +85,11 @@ public class JuiceBar extends javax.swing.JFrame {
         jPanel1.setAutoscrolls(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         noSelection.setBackground(new java.awt.Color(255, 255, 255));
         noSelection.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -172,7 +174,7 @@ public class JuiceBar extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel5.setText("Extra - 5.00 Each");
@@ -428,7 +430,7 @@ public class JuiceBar extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
