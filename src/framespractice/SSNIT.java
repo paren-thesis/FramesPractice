@@ -57,7 +57,7 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtMonths = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        showRetire1 = new javax.swing.JTextField();
+        bornDay = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtASalary = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -207,7 +207,7 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("No Of Months");
 
-        showRetire1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        bornDay.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setText("Born Day:");
@@ -283,7 +283,7 @@ public class SSNIT extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(showRetire, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                            .addComponent(showRetire1))))
+                            .addComponent(bornDay))))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -326,7 +326,7 @@ public class SSNIT extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(showRetire1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(bornDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -373,7 +373,8 @@ public class SSNIT extends javax.swing.JFrame {
         extract.setEnabled(false);
         year = ssnitNumber.substring(3, 5);
         // Check year
-        if (Integer.parseInt(year) <= 25) {
+        if (editSSNIT.getText().length() != 0 && txtMonths.getText().length() != 0 && txtY1.getText().length() != 0 && 
+                txtY2.getText().length() != 0 && txtY3.getText().length() != 0) {
             year = "20" + year;
         } else {
             year = "19" + year;
@@ -382,17 +383,29 @@ public class SSNIT extends javax.swing.JFrame {
         day = ssnitNumber.substring(7, 9);
         birthDate = year + "-" + month + "-" + day;
         // Calculate Age
-        LocalDate birthDateObj, retirementDateObj;
-        int currentAge;
-        birthDateObj = LocalDate.parse(birthDate);
-        currentAge = LocalDate.now().getYear() - birthDateObj.getYear();
-        retirementDateObj = birthDateObj.plusYears(60);
-        String dayOfWeek = birthDateObj.getDayOfWeek().name();
-
-        showBirthDate.setText(birthDate);
-        showAge.setText(currentAge + "");
-        showRetire.setText(retirementDateObj.toString());
-        JOptionPane.showMessageDialog(rootPane, dayOfWeek);
+        LocalDate birthDateObj = null, retirementDateObj;
+        int monthe = Integer.parseInt(txtMonths.getText());
+        int y1 = Integer.parseInt(txtY1.getText());
+        int y2 = Integer.parseInt(txtY2.getText());
+        int y3 = Integer.parseInt(txtY3.getText());
+        PenssionChild penChild = new PenssionChild(y1,y2,y3 ,birthDateObj, monthe);
+        
+        showBirthDate.setText(penChild.getDob().toString());
+        showAge.setText(penChild.age() +"");
+        showRetire.setText(penChild.retireDate().toString());
+        bornDay.setText(penChild.bornDay());
+        
+        String message = "";
+//        int currentAge;
+//        birthDateObj = LocalDate.parse(birthDate);
+//        currentAge = LocalDate.now().getYear() - birthDateObj.getYear();
+//        retirementDateObj = birthDateObj.plusYears(60);
+//        String dayOfWeek = birthDateObj.getDayOfWeek().name();
+//
+//        showBirthDate.setText(birthDate);
+//        showAge.setText(currentAge + "");
+//        showRetire.setText(retirementDateObj.toString());
+//        JOptionPane.showMessageDialog(rootPane, dayOfWeek);
     }//GEN-LAST:event_extractActionPerformed
 
     private void editSSNITFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editSSNITFocusLost
@@ -479,6 +492,7 @@ public class SSNIT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bornDay;
     private javax.swing.JTextField editSSNIT;
     private javax.swing.JButton exit;
     private javax.swing.JButton extract;
@@ -500,7 +514,6 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JTextField showAge;
     private javax.swing.JTextField showBirthDate;
     private javax.swing.JTextField showRetire;
-    private javax.swing.JTextField showRetire1;
     private javax.swing.JLabel txtASalary;
     private javax.swing.JTextField txtMonths;
     private javax.swing.JTextField txtY1;

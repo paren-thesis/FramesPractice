@@ -65,7 +65,7 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="showRetire" pref="225" max="32767" attributes="0"/>
-                          <Component id="showRetire1" max="32767" attributes="0"/>
+                          <Component id="bornDay" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -121,7 +121,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="showRetire1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bornDay" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -378,7 +378,7 @@
         <Property name="text" type="java.lang.String" value="No Of Months"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="showRetire1">
+    <Component class="javax.swing.JTextField" name="bornDay">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="24" style="0"/>
