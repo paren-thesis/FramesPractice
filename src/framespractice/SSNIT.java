@@ -22,8 +22,8 @@ public class SSNIT extends javax.swing.JFrame {
     public SSNIT() {
         initComponents();
         Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = dm.width /2 - this.getWidth() /2;
-        int y = dm.height / 2 - this.getHeight() /2;
+        int x = dm.width / 2 - this.getWidth() / 2;
+        int y = dm.height / 2 - this.getHeight() / 2;
         this.setLocation(x, y);
     }
 
@@ -61,8 +61,8 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtASalary = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rdbPNDC = new javax.swing.JRadioButton();
+        rdbACT = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -218,16 +218,16 @@ public class SSNIT extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Penssion Scheme"));
 
-        penssionScheme.add(jRadioButton1);
-        jRadioButton1.setText("PNDLaw 247");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        penssionScheme.add(rdbPNDC);
+        rdbPNDC.setText("PNDLaw 247");
+        rdbPNDC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rdbPNDCActionPerformed(evt);
             }
         });
 
-        penssionScheme.add(jRadioButton2);
-        jRadioButton2.setText("Act 643");
+        penssionScheme.add(rdbACT);
+        rdbACT.setText("Act 643");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -235,9 +235,9 @@ public class SSNIT extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRadioButton1)
+                .addComponent(rdbPNDC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
+                .addComponent(rdbACT)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -245,8 +245,8 @@ public class SSNIT extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rdbPNDC)
+                    .addComponent(rdbACT))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,9 +281,9 @@ public class SSNIT extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel10))
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(showRetire1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(showRetire, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(showRetire, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                            .addComponent(showRetire1))))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -347,6 +347,8 @@ public class SSNIT extends javax.swing.JFrame {
         showBirthDate.setEnabled(false);
         showAge.setEnabled(false);
         showRetire.setEnabled(false);
+        showBirthDate.setEditable(false);
+        rdbPNDC.setSelected(true);
     }//GEN-LAST:event_formWindowOpened
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
@@ -377,7 +379,7 @@ public class SSNIT extends javax.swing.JFrame {
             year = "19" + year;
         }
         month = ssnitNumber.substring(5, 7);
-        day = ssnitNumber.substring(7,9);
+        day = ssnitNumber.substring(7, 9);
         birthDate = year + "-" + month + "-" + day;
         // Calculate Age
         LocalDate birthDateObj, retirementDateObj;
@@ -406,7 +408,19 @@ public class SSNIT extends javax.swing.JFrame {
     }//GEN-LAST:event_editSSNITFocusLost
 
     private void txtMonthsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMonthsFocusLost
-        // TODO add your handling code here:
+        if (txtMonths.getText().length() != 0) {
+            if (rdbPNDC.isSelected() == true) {
+                if (Integer.parseInt(txtMonths.getText()) < 240) {
+                    JOptionPane.showMessageDialog(rootPane, "You don't quaify");
+                    extract.setEnabled(false);
+                }
+            } else {
+                if (Integer.parseInt(txtMonths.getText()) < 180) {
+                    JOptionPane.showMessageDialog(rootPane, "You don't quaify");
+                    extract.setEnabled(false);
+                }
+            }
+        }
     }//GEN-LAST:event_txtMonthsFocusLost
 
     private void txtY1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtY1FocusLost
@@ -425,9 +439,9 @@ public class SSNIT extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtY1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rdbPNDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPNDCActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rdbPNDCActionPerformed
 
     /**
      * @param args the command line arguments
@@ -479,9 +493,9 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.ButtonGroup penssionScheme;
+    private javax.swing.JRadioButton rdbACT;
+    private javax.swing.JRadioButton rdbPNDC;
     private javax.swing.JButton refresh;
     private javax.swing.JTextField showAge;
     private javax.swing.JTextField showBirthDate;
