@@ -213,7 +213,6 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel10.setText("Born Day:");
 
         txtASalary.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtASalary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtASalary.setText("Average Salary");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Penssion Scheme"));
@@ -368,34 +367,42 @@ public class SSNIT extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void extractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractActionPerformed
-        String year, month, day, birthDate, retirementDate, ssnitNumber;
-        ssnitNumber = editSSNIT.getText();
-        extract.setEnabled(false);
-        year = ssnitNumber.substring(3, 5);
-        // Check year
-        if (editSSNIT.getText().length() != 0 && txtMonths.getText().length() != 0 && txtY1.getText().length() != 0 && 
-                txtY2.getText().length() != 0 && txtY3.getText().length() != 0) {
-            year = "20" + year;
-        } else {
-            year = "19" + year;
-        }
-        month = ssnitNumber.substring(5, 7);
-        day = ssnitNumber.substring(7, 9);
-        birthDate = year + "-" + month + "-" + day;
-        // Calculate Age
-        LocalDate birthDateObj = null, retirementDateObj;
-        int monthe = Integer.parseInt(txtMonths.getText());
-        int y1 = Integer.parseInt(txtY1.getText());
-        int y2 = Integer.parseInt(txtY2.getText());
-        int y3 = Integer.parseInt(txtY3.getText());
-        PenssionChild penChild = new PenssionChild(y1,y2,y3 ,birthDateObj, monthe);
-        
-        showBirthDate.setText(penChild.getDob().toString());
-        showAge.setText(penChild.age() +"");
-        showRetire.setText(penChild.retireDate().toString());
-        bornDay.setText(penChild.bornDay());
-        
-        String message = "";
+String year, month, day, birthDate, retirementDate, ssnitNumber;
+ssnitNumber = editSSNIT.getText();
+extract.setEnabled(false);
+year = ssnitNumber.substring(3, 5);
+
+// Changed: Now checks if year <= 25 for 20xx, else 19xx
+if (Integer.parseInt(year) <= 25) {
+    year = "20" + year;
+} else {
+    year = "19" + year;
+}
+
+month = ssnitNumber.substring(5, 7);
+day = ssnitNumber.substring(7, 9);
+birthDate = year + "-" + month + "-" + day;
+
+// Calculate Age
+LocalDate birthDateObj = null, retirementDateObj;
+int monthe = Integer.parseInt(txtMonths.getText());
+int y1 = Integer.parseInt(txtY1.getText());  // Fixed: Was wrong in code (B)
+int y2 = Integer.parseInt(txtY2.getText());  // Fixed: Was wrong in code (B)
+int y3 = Integer.parseInt(txtY3.getText());  // Fixed: Was wrong in code (B)
+
+PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe);
+
+showBirthDate.setText(penChild.getDob().toString());
+showAge.setText(penChild.age() + "");
+showRetire.setText(penChild.retireDate().toString());
+bornDay.setText(penChild.bornDay());
+
+// Added from code (B): Pension details message
+String message = "Pension Right - " + penChild.pRight() + 
+                 "\nAvg Salary - " + penChild.avgSalary() + 
+                 "\nMonthly Pension - " + penChild.monthlyPenssion();
+txtASalary.setText(message);
+//JOptionPane.showMessageDialog(rootPane, message);
 //        int currentAge;
 //        birthDateObj = LocalDate.parse(birthDate);
 //        currentAge = LocalDate.now().getYear() - birthDateObj.getYear();
@@ -426,11 +433,15 @@ public class SSNIT extends javax.swing.JFrame {
                 if (Integer.parseInt(txtMonths.getText()) < 240) {
                     JOptionPane.showMessageDialog(rootPane, "You don't quaify");
                     extract.setEnabled(false);
+                } else {
+                    extract.setEnabled(true);
                 }
             } else {
                 if (Integer.parseInt(txtMonths.getText()) < 180) {
                     JOptionPane.showMessageDialog(rootPane, "You don't quaify");
                     extract.setEnabled(false);
+                } else {
+                    extract.setEnabled(true);
                 }
             }
         }
