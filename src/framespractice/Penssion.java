@@ -1,4 +1,3 @@
-
 package framespractice;
 
 import java.time.LocalDate;
@@ -10,10 +9,12 @@ import java.time.LocalDate;
 public class Penssion {
     private LocalDate dob;
     private int months;
+    private boolean isPNDC; // true for PNDLaw 247, false for Act 643
 
-    public Penssion(LocalDate dob, int months) {
+    public Penssion(LocalDate dob, int months, boolean isPNDC) {
         this.dob = dob;
         this.months = months;
+        this.isPNDC = isPNDC;
     }
 
     public LocalDate getDob() {
@@ -33,9 +34,20 @@ public class Penssion {
     }
     
     public double pRight() {
-        if(months <= 420)
-            return 37.50 + ((months-180) * 0.09375);
-        else
-            return 60.00;
+        if (isPNDC) {
+            // PNDLaw 247 calculation
+            if (months <= 420) {
+                return 37.50 + ((months - 240) * 0.09375);
+            } else {
+                return 60.00;
+            }
+        } else {
+            // Act 643 calculation
+            if (months <= 420) {
+                return 37.50 + ((months - 180) * 0.09375);
+            } else {
+                return 60.00;
+            }
+        }
     }
 }

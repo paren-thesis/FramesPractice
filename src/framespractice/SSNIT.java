@@ -42,7 +42,7 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        txtSSNIT = new javax.swing.JLabel();
         editSSNIT = new javax.swing.JTextField();
         showBirthDate = new javax.swing.JTextField();
         showAge = new javax.swing.JTextField();
@@ -89,13 +89,30 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Birth Date:");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("SSNIT:");
+        txtSSNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtSSNIT.setText("SSNIT:");
+        txtSSNIT.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                txtSSNITInputMethodTextChanged(evt);
+            }
+        });
+        txtSSNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSSNITKeyPressed(evt);
+            }
+        });
 
         editSSNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         editSSNIT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 editSSNITFocusLost(evt);
+            }
+        });
+        editSSNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editSSNITKeyTyped(evt);
             }
         });
 
@@ -267,7 +284,7 @@ public class SSNIT extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel1))
+                            .addComponent(txtSSNIT))
                         .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(editSSNIT, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -309,7 +326,7 @@ public class SSNIT extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
+                            .addComponent(txtSSNIT)
                             .addComponent(editSSNIT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -349,6 +366,7 @@ public class SSNIT extends javax.swing.JFrame {
         showRetire.setEnabled(false);
         showBirthDate.setEditable(false);
         rdbPNDC.setSelected(true);
+        bornDay.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
 
     private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
@@ -398,8 +416,11 @@ public class SSNIT extends javax.swing.JFrame {
             int y2 = Integer.parseInt(txtY2.getText());
             int y3 = Integer.parseInt(txtY3.getText());
             
-            // Create pension child object with valid birth date
-            PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe);
+            // Get pension scheme selection
+            boolean isPNDC = rdbPNDC.isSelected();
+            
+            // Create pension child object with valid birth date and pension scheme
+            PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe, isPNDC);
             
             // Update UI with results
             showBirthDate.setText(birthDateObj.toString());
@@ -477,6 +498,20 @@ public class SSNIT extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbPNDCActionPerformed
 
+    private void editSSNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSSNITKeyTyped
+       
+    }//GEN-LAST:event_editSSNITKeyTyped
+
+    private void txtSSNITInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtSSNITInputMethodTextChanged
+         int l = txtSSNIT.getText().length();
+        txtSSNIT.setText("SSNIT:(" + l +")");
+    }//GEN-LAST:event_txtSSNITInputMethodTextChanged
+
+    private void txtSSNITKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSSNITKeyPressed
+         int l = txtSSNIT.getText().length();
+        txtSSNIT.setText("SSNIT:(" + l +")");
+    }//GEN-LAST:event_txtSSNITKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -517,7 +552,6 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JTextField editSSNIT;
     private javax.swing.JButton exit;
     private javax.swing.JButton extract;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -537,6 +571,7 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JTextField showRetire;
     private javax.swing.JLabel txtASalary;
     private javax.swing.JTextField txtMonths;
+    private javax.swing.JLabel txtSSNIT;
     private javax.swing.JTextField txtY1;
     private javax.swing.JTextField txtY2;
     private javax.swing.JTextField txtY3;

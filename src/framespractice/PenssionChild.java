@@ -11,12 +11,12 @@ import java.time.LocalDate;
  *
  * @author Prosper
  */
-public class PenssionChild extends Penssion{
+public class PenssionChild extends Penssion {
     
     private double year1, year2, year3;
 
-    public PenssionChild(double year1, double year2, double year3, LocalDate dob, int months) {
-        super(dob, months);
+    public PenssionChild(double year1, double year2, double year3, LocalDate dob, int months, boolean isPNDC) {
+        super(dob, months, isPNDC);
         this.year1 = year1;
         this.year2 = year2;
         this.year3 = year3;
@@ -33,5 +33,4 @@ public class PenssionChild extends Penssion{
     public double monthlyPenssion() {
         return annualPension() / 12;
     }
-    
 }
