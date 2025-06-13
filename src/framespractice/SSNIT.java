@@ -7,6 +7,7 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
@@ -367,52 +368,61 @@ public class SSNIT extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     private void extractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extractActionPerformed
-String year, month, day, birthDate, retirementDate, ssnitNumber;
-ssnitNumber = editSSNIT.getText();
-extract.setEnabled(false);
-year = ssnitNumber.substring(3, 5);
-
-// Changed: Now checks if year <= 25 for 20xx, else 19xx
-if (Integer.parseInt(year) <= 25) {
-    year = "20" + year;
-} else {
-    year = "19" + year;
-}
-
-month = ssnitNumber.substring(5, 7);
-day = ssnitNumber.substring(7, 9);
-birthDate = year + "-" + month + "-" + day;
-
-// Calculate Age
-LocalDate birthDateObj = null, retirementDateObj;
-int monthe = Integer.parseInt(txtMonths.getText());
-int y1 = Integer.parseInt(txtY1.getText());  // Fixed: Was wrong in code (B)
-int y2 = Integer.parseInt(txtY2.getText());  // Fixed: Was wrong in code (B)
-int y3 = Integer.parseInt(txtY3.getText());  // Fixed: Was wrong in code (B)
-
-PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe);
-
-showBirthDate.setText(penChild.getDob().toString());
-showAge.setText(penChild.age() + "");
-showRetire.setText(penChild.retireDate().toString());
-bornDay.setText(penChild.bornDay());
-
-// Added from code (B): Pension details message
-String message = "Pension Right - " + penChild.pRight() + 
-                 "\nAvg Salary - " + penChild.avgSalary() + 
-                 "\nMonthly Pension - " + penChild.monthlyPenssion();
-txtASalary.setText(message);
-//JOptionPane.showMessageDialog(rootPane, message);
-//        int currentAge;
-//        birthDateObj = LocalDate.parse(birthDate);
-//        currentAge = LocalDate.now().getYear() - birthDateObj.getYear();
-//        retirementDateObj = birthDateObj.plusYears(60);
-//        String dayOfWeek = birthDateObj.getDayOfWeek().name();
-//
-//        showBirthDate.setText(birthDate);
-//        showAge.setText(currentAge + "");
-//        showRetire.setText(retirementDateObj.toString());
-//        JOptionPane.showMessageDialog(rootPane, dayOfWeek);
+        String year, month, day, birthDate, ssnitNumber;
+        ssnitNumber = editSSNIT.getText();
+        extract.setEnabled(false);
+        
+        try {
+            // Extract year, month, and day from SSNIT number
+            year = ssnitNumber.substring(3, 5);
+            month = ssnitNumber.substring(5, 7);
+            day = ssnitNumber.substring(7, 9);
+            
+            // Determine century based on year value
+            int yearValue = Integer.parseInt(year);
+            if (yearValue <= 25) {
+                year = "20" + year;
+            } else {
+                year = "19" + year;
+            }
+            
+            // Create birth date string in ISO format
+            birthDate = year + "-" + month + "-" + day;
+            
+            // Parse the birth date
+            LocalDate birthDateObj = LocalDate.parse(birthDate);
+            
+            // Get other values
+            int monthe = Integer.parseInt(txtMonths.getText());
+            int y1 = Integer.parseInt(txtY1.getText());
+            int y2 = Integer.parseInt(txtY2.getText());
+            int y3 = Integer.parseInt(txtY3.getText());
+            
+            // Create pension child object with valid birth date
+            PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe);
+            
+            // Update UI with results
+            showBirthDate.setText(birthDateObj.toString());
+            showAge.setText(penChild.age() + "");
+            showRetire.setText(penChild.retireDate().toString());
+            bornDay.setText(penChild.bornDay());
+            
+            // Show pension details
+            String message = "Pension Right - " + penChild.pRight() + 
+                           "\nAvg Salary - " + penChild.avgSalary() + 
+                           "\nMonthly Pension - " + penChild.monthlyPenssion();
+            txtASalary.setText(message);
+            
+        } catch (StringIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number format");
+            extract.setEnabled(true);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "Invalid number format in input fields");
+            extract.setEnabled(true);
+        } catch (DateTimeException e) {
+            JOptionPane.showMessageDialog(rootPane, "Invalid date in SSNIT number");
+            extract.setEnabled(true);
+        }
     }//GEN-LAST:event_extractActionPerformed
 
     private void editSSNITFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editSSNITFocusLost
