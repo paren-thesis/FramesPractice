@@ -60,10 +60,11 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bornDay = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtASalary = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         rdbPNDC = new javax.swing.JRadioButton();
         rdbACT = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtASalary = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -91,28 +92,11 @@ public class SSNIT extends javax.swing.JFrame {
 
         txtSSNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtSSNIT.setText("SSNIT:");
-        txtSSNIT.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                txtSSNITInputMethodTextChanged(evt);
-            }
-        });
-        txtSSNIT.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSSNITKeyPressed(evt);
-            }
-        });
 
         editSSNIT.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         editSSNIT.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 editSSNITFocusLost(evt);
-            }
-        });
-        editSSNIT.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                editSSNITKeyTyped(evt);
             }
         });
 
@@ -145,33 +129,13 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel3.setText("Year 1");
 
         txtY1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtY1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtY1FocusLost(evt);
-            }
-        });
-        txtY1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtY1ActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setText("Year 2");
 
         txtY2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtY2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtY2FocusLost(evt);
-            }
-        });
 
         txtY3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        txtY3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtY3FocusLost(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Year 3");
@@ -230,18 +194,10 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setText("Born Day:");
 
-        txtASalary.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        txtASalary.setText("Average Salary");
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Penssion Scheme"));
 
         penssionScheme.add(rdbPNDC);
         rdbPNDC.setText("PNDLaw 247");
-        rdbPNDC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbPNDCActionPerformed(evt);
-            }
-        });
 
         penssionScheme.add(rdbACT);
         rdbACT.setText("Act 643");
@@ -266,6 +222,11 @@ public class SSNIT extends javax.swing.JFrame {
                     .addComponent(rdbACT))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        txtASalary.setColumns(20);
+        txtASalary.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        txtASalary.setRows(5);
+        jScrollPane1.setViewportView(txtASalary);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -304,13 +265,13 @@ public class SSNIT extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtASalary, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txtMonths, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 177, Short.MAX_VALUE)))
+                        .addGap(0, 177, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -344,17 +305,19 @@ public class SSNIT extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(bornDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(refresh)
                             .addComponent(exit)
                             .addComponent(extract)))
-                    .addComponent(txtASalary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6))
         );
 
         pack();
@@ -375,6 +338,7 @@ public class SSNIT extends javax.swing.JFrame {
         showRetire.setText("");
         editSSNIT.setText("");
         extract.setEnabled(true);
+        bornDay.setText("");
     }//GEN-LAST:event_refreshActionPerformed
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
@@ -389,13 +353,13 @@ public class SSNIT extends javax.swing.JFrame {
         String year, month, day, birthDate, ssnitNumber;
         ssnitNumber = editSSNIT.getText();
         extract.setEnabled(false);
-        
+
         try {
             // Extract year, month, and day from SSNIT number
             year = ssnitNumber.substring(3, 5);
             month = ssnitNumber.substring(5, 7);
             day = ssnitNumber.substring(7, 9);
-            
+
             // Determine century based on year value
             int yearValue = Integer.parseInt(year);
             if (yearValue <= 25) {
@@ -403,37 +367,37 @@ public class SSNIT extends javax.swing.JFrame {
             } else {
                 year = "19" + year;
             }
-            
+
             // Create birth date string in ISO format
             birthDate = year + "-" + month + "-" + day;
-            
+
             // Parse the birth date
             LocalDate birthDateObj = LocalDate.parse(birthDate);
-            
+
             // Get other values
             int monthe = Integer.parseInt(txtMonths.getText());
             int y1 = Integer.parseInt(txtY1.getText());
             int y2 = Integer.parseInt(txtY2.getText());
             int y3 = Integer.parseInt(txtY3.getText());
-            
+
             // Get pension scheme selection
             boolean isPNDC = rdbPNDC.isSelected();
-            
+
             // Create pension child object with valid birth date and pension scheme
             PenssionChild penChild = new PenssionChild(y1, y2, y3, birthDateObj, monthe, isPNDC);
-            
+
             // Update UI with results
             showBirthDate.setText(birthDateObj.toString());
             showAge.setText(penChild.age() + "");
             showRetire.setText(penChild.retireDate().toString());
             bornDay.setText(penChild.bornDay());
-            
+
             // Show pension details
-            String message = "Pension Right - " + penChild.pRight() + 
-                           "\nAvg Salary - " + penChild.avgSalary() + 
-                           "\nMonthly Pension - " + penChild.monthlyPenssion();
+            String message = "Pension Right - " + penChild.pRight()
+                    + "\nAvg Salary - " + penChild.avgSalary()
+                    + "\nMonthly Pension - " + penChild.monthlyPenssion();
             txtASalary.setText(message);
-            
+
         } catch (StringIndexOutOfBoundsException e) {
             JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number format");
             extract.setEnabled(true);
@@ -445,18 +409,6 @@ public class SSNIT extends javax.swing.JFrame {
             extract.setEnabled(true);
         }
     }//GEN-LAST:event_extractActionPerformed
-
-    private void editSSNITFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editSSNITFocusLost
-        if (editSSNIT.getText().length() != 0) {
-            String ss = editSSNIT.getText();
-            if (editSSNIT.getText().length() == 13 && Character.isLetter(ss.charAt(0))) {
-                //Do nothing
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number");
-                editSSNIT.grabFocus();
-            }
-        }
-    }//GEN-LAST:event_editSSNITFocusLost
 
     private void txtMonthsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtMonthsFocusLost
         if (txtMonths.getText().length() != 0) {
@@ -478,39 +430,16 @@ public class SSNIT extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtMonthsFocusLost
 
-    private void txtY1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtY1FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtY1FocusLost
-
-    private void txtY2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtY2FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtY2FocusLost
-
-    private void txtY3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtY3FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtY3FocusLost
-
-    private void txtY1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtY1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtY1ActionPerformed
-
-    private void rdbPNDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPNDCActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdbPNDCActionPerformed
-
-    private void editSSNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editSSNITKeyTyped
-       
-    }//GEN-LAST:event_editSSNITKeyTyped
-
-    private void txtSSNITInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtSSNITInputMethodTextChanged
-         int l = txtSSNIT.getText().length();
-        txtSSNIT.setText("SSNIT:(" + l +")");
-    }//GEN-LAST:event_txtSSNITInputMethodTextChanged
-
-    private void txtSSNITKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSSNITKeyPressed
-         int l = txtSSNIT.getText().length();
-        txtSSNIT.setText("SSNIT:(" + l +")");
-    }//GEN-LAST:event_txtSSNITKeyPressed
+    private void editSSNITFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_editSSNITFocusLost
+        if (editSSNIT.getText().length() != 0) {
+            String ss = editSSNIT.getText();
+            if (editSSNIT.getText().length() == 13 && Character.isLetter(ss.charAt(0))) {               //Do nothing
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Invalid SSNIT number");
+                editSSNIT.grabFocus();
+            }
+        }
+    }//GEN-LAST:event_editSSNITFocusLost
 
     /**
      * @param args the command line arguments
@@ -562,6 +491,7 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.ButtonGroup penssionScheme;
     private javax.swing.JRadioButton rdbACT;
     private javax.swing.JRadioButton rdbPNDC;
@@ -569,7 +499,7 @@ public class SSNIT extends javax.swing.JFrame {
     private javax.swing.JTextField showAge;
     private javax.swing.JTextField showBirthDate;
     private javax.swing.JTextField showRetire;
-    private javax.swing.JLabel txtASalary;
+    private javax.swing.JTextArea txtASalary;
     private javax.swing.JTextField txtMonths;
     private javax.swing.JLabel txtSSNIT;
     private javax.swing.JTextField txtY1;
