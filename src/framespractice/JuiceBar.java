@@ -7,6 +7,7 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.text.NumberFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Prosper
  */
 public class JuiceBar extends javax.swing.JFrame {
-
+    NumberFormat nf = NumberFormat.getCurrencyInstance();
     /**
      * Creates new form JuiceBar
      */
@@ -506,6 +507,7 @@ public class JuiceBar extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         noSelection.setSelected(true);
         editQuantity.grabFocus();
+        editQuantity.setText("1");
         orderComplete.setEnabled(false);
         summeryReport.setEnabled(false);
     }//GEN-LAST:event_formWindowOpened
