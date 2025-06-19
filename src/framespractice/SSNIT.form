@@ -392,9 +392,6 @@
           </Border>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jPanel2FocusGained"/>
-      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -200,11 +200,6 @@ public class SSNIT extends javax.swing.JFrame {
         jLabel10.setText("Born Day:");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Penssion Scheme"));
-        jPanel2.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jPanel2FocusGained(evt);
-            }
-        });
 
         penssionScheme.add(rdbPNDC);
         rdbPNDC.setText("PNDLaw 247");
@@ -454,10 +449,6 @@ public class SSNIT extends javax.swing.JFrame {
         int nkeyed = editSSNIT.getText().length() + 1;
         txtSSNIT.setText("SNNIT(" + nkeyed + "):");
     }//GEN-LAST:event_editSSNITKeyTyped
-
-    private void jPanel2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel2FocusGained
-        extract.setEnabled(true);
-    }//GEN-LAST:event_jPanel2FocusGained
 
     /**
      * @param args the command line arguments
