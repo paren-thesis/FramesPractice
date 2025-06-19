@@ -4,8 +4,6 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="juicesSelection">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="smoothiesSelection">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -132,7 +130,7 @@
                                   <Component id="cost" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="subTotal" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="tax" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="amountDate" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="amountDue" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -180,7 +178,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="amountDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="amountDue" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -264,8 +262,14 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="juicesSelection"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="No Selection"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="noSelectionActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="fruitRadio">
                   <Properties>
@@ -280,6 +284,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Fruit"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fruitRadioActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="veggieRadio">
                   <Properties>
@@ -294,6 +301,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Veggie"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veggieRadioActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
@@ -310,13 +320,16 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="smoothiesSelection"/>
+                      <ComponentRef name="juicesSelection"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="15" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Strawberry"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="strawRadioActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="pomeRadio">
                   <Properties>
@@ -324,13 +337,16 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="smoothiesSelection"/>
+                      <ComponentRef name="juicesSelection"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="15" style="0"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Pomegranate"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pomeRadioActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="berryRadio">
                   <Properties>
@@ -338,13 +354,16 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="smoothiesSelection"/>
+                      <ComponentRef name="juicesSelection"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="15" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="White Berry"/>
+                    <Property name="text" type="java.lang.String" value="Wheat Berry"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="berryRadioActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -519,7 +538,7 @@
                 <Property name="text" type="java.lang.String" value="$0.00"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="amountDate">
+            <Component class="javax.swing.JLabel" name="amountDue">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="34" green="bb" red="ff" type="rgb"/>
@@ -559,6 +578,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="30" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="33" red="0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="HTU Juice Bar"/>
           </Properties>

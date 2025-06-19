@@ -38,7 +38,6 @@ public class JuiceBar extends javax.swing.JFrame {
     private void initComponents() {
 
         juicesSelection = new javax.swing.ButtonGroup();
-        smoothiesSelection = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -63,7 +62,7 @@ public class JuiceBar extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         tax = new javax.swing.JLabel();
-        amountDate = new javax.swing.JLabel();
+        amountDue = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         editQuantity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -105,36 +104,67 @@ public class JuiceBar extends javax.swing.JFrame {
         });
 
         noSelection.setBackground(new java.awt.Color(255, 255, 255));
+        juicesSelection.add(noSelection);
         noSelection.setText("No Selection");
+        noSelection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                noSelectionActionPerformed(evt);
+            }
+        });
 
         fruitRadio.setBackground(new java.awt.Color(255, 255, 255));
         juicesSelection.add(fruitRadio);
         fruitRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         fruitRadio.setText("Fruit");
+        fruitRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fruitRadioActionPerformed(evt);
+            }
+        });
 
         veggieRadio.setBackground(new java.awt.Color(255, 255, 255));
         juicesSelection.add(veggieRadio);
         veggieRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         veggieRadio.setText("Veggie");
+        veggieRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                veggieRadioActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel4.setText("Smoothies");
         jLabel4.setToolTipText("");
 
         strawRadio.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(strawRadio);
+        juicesSelection.add(strawRadio);
         strawRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         strawRadio.setText("Strawberry");
+        strawRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                strawRadioActionPerformed(evt);
+            }
+        });
 
         pomeRadio.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(pomeRadio);
+        juicesSelection.add(pomeRadio);
         pomeRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         pomeRadio.setText("Pomegranate");
+        pomeRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pomeRadioActionPerformed(evt);
+            }
+        });
 
         berryRadio.setBackground(new java.awt.Color(255, 255, 255));
-        smoothiesSelection.add(berryRadio);
+        juicesSelection.add(berryRadio);
         berryRadio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        berryRadio.setText("White Berry");
+        berryRadio.setText("Wheat Berry");
+        berryRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                berryRadioActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("Juices");
@@ -259,11 +289,11 @@ public class JuiceBar extends javax.swing.JFrame {
         tax.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tax.setText("$0.00");
 
-        amountDate.setBackground(new java.awt.Color(255, 187, 52));
-        amountDate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        amountDate.setForeground(new java.awt.Color(152, 203, 2));
-        amountDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        amountDate.setText("$0.00");
+        amountDue.setBackground(new java.awt.Color(255, 187, 52));
+        amountDue.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        amountDue.setForeground(new java.awt.Color(152, 203, 2));
+        amountDue.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        amountDue.setText("$0.00");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel17.setText("Amount Due:");
@@ -300,7 +330,7 @@ public class JuiceBar extends javax.swing.JFrame {
                             .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tax, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amountDate, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(amountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -337,11 +367,12 @@ public class JuiceBar extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(amountDate))))
+                            .addComponent(amountDue))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
         jLabel2.setText("HTU Juice Bar");
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -480,7 +511,6 @@ public class JuiceBar extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        smoothiesSelection.clearSelection();
         juicesSelection.clearSelection();
         editQuantity.setText("");
         editQuantity.grabFocus();
@@ -515,6 +545,42 @@ public class JuiceBar extends javax.swing.JFrame {
     private void jPanel3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanel3PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3PropertyChange
+
+    private void noSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noSelectionActionPerformed
+        if (noSelection.isSelected()) {
+            price.setText("0.00");
+        }
+    }//GEN-LAST:event_noSelectionActionPerformed
+
+    private void fruitRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruitRadioActionPerformed
+        if (fruitRadio.isSelected()) {
+            price.setText("7.00");
+        }
+    }//GEN-LAST:event_fruitRadioActionPerformed
+
+    private void veggieRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieRadioActionPerformed
+        if (veggieRadio.isSelected()) {
+            price.setText("5.00");
+        }
+    }//GEN-LAST:event_veggieRadioActionPerformed
+
+    private void pomeRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeRadioActionPerformed
+        if (pomeRadio.isSelected()) {
+            price.setText("10.00");
+        }
+    }//GEN-LAST:event_pomeRadioActionPerformed
+
+    private void strawRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strawRadioActionPerformed
+        if (strawRadio.isSelected()) {
+            price.setText("13.00");
+        }
+    }//GEN-LAST:event_strawRadioActionPerformed
+
+    private void berryRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_berryRadioActionPerformed
+        if (berryRadio.isSelected()) {
+            price.setText("15.50");
+        }
+    }//GEN-LAST:event_berryRadioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -553,7 +619,7 @@ public class JuiceBar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToOrder;
-    private javax.swing.JLabel amountDate;
+    private javax.swing.JLabel amountDue;
     private javax.swing.JRadioButton berryRadio;
     private javax.swing.JLabel cost;
     private javax.swing.JTextField editQuantity;
@@ -583,7 +649,6 @@ public class JuiceBar extends javax.swing.JFrame {
     private javax.swing.JButton orderComplete;
     private javax.swing.JRadioButton pomeRadio;
     private javax.swing.JLabel price;
-    private javax.swing.ButtonGroup smoothiesSelection;
     private javax.swing.JRadioButton strawRadio;
     private javax.swing.JLabel subTotal;
     private javax.swing.JButton summeryReport;
