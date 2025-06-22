@@ -76,13 +76,6 @@ public class JuiceBar extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                formWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -107,9 +100,9 @@ public class JuiceBar extends javax.swing.JFrame {
         noSelection.setBackground(new java.awt.Color(255, 255, 255));
         juicesSelection.add(noSelection);
         noSelection.setText("No Selection");
-        noSelection.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noSelectionActionPerformed(evt);
+        noSelection.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                noSelectionStateChanged(evt);
             }
         });
 
@@ -540,19 +533,9 @@ public class JuiceBar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_editQuantityKeyTyped
 
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowGainedFocus
-
     private void jPanel3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanel3PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3PropertyChange
-
-    private void noSelectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noSelectionActionPerformed
-        if (noSelection.isSelected()) {
-            price.setText("0.00");
-        }
-    }//GEN-LAST:event_noSelectionActionPerformed
 
     private void fruitRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruitRadioActionPerformed
         if (fruitRadio.isSelected()) {
@@ -583,6 +566,12 @@ public class JuiceBar extends javax.swing.JFrame {
             price.setText("15.50");
         }
     }//GEN-LAST:event_berryRadioActionPerformed
+
+    private void noSelectionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_noSelectionStateChanged
+        if (noSelection.isSelected()) {
+            price.setText("0.00");
+        }
+    }//GEN-LAST:event_noSelectionStateChanged
 
     /**
      * @param args the command line arguments
