@@ -15,7 +15,11 @@ import javax.swing.JOptionPane;
  * @author Prosper
  */
 public class JuiceBar extends javax.swing.JFrame {
+
     NumberFormat nf = NumberFormat.getCurrencyInstance();
+    int quantityv, clientv, juicev, smoothiesv;
+    double pricev, costv, taxv, subtotal = 0, amtduev = 0, salesv = 0, extrav;
+
     /**
      * Creates new form JuiceBar
      */
@@ -219,10 +223,20 @@ public class JuiceBar extends javax.swing.JFrame {
         energyCheck.setBackground(new java.awt.Color(255, 255, 255));
         energyCheck.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         energyCheck.setText("Energy Booster");
+        energyCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                energyCheckActionPerformed(evt);
+            }
+        });
 
         ladiesCheck.setBackground(new java.awt.Color(255, 255, 255));
         ladiesCheck.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         ladiesCheck.setText("For The Ladies");
+        ladiesCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ladiesCheckActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -317,18 +331,23 @@ public class JuiceBar extends javax.swing.JFrame {
                             .addComponent(jLabel13)
                             .addComponent(jLabel14)
                             .addComponent(jLabel17))
-                        .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(editQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tax, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tax, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(amountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(cost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,38 +559,73 @@ public class JuiceBar extends javax.swing.JFrame {
     private void fruitRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruitRadioActionPerformed
         if (fruitRadio.isSelected()) {
             price.setText("7.00");
+            updateCost();
         }
     }//GEN-LAST:event_fruitRadioActionPerformed
 
     private void veggieRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veggieRadioActionPerformed
         if (veggieRadio.isSelected()) {
             price.setText("5.00");
+            updateCost();
         }
     }//GEN-LAST:event_veggieRadioActionPerformed
 
     private void pomeRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeRadioActionPerformed
         if (pomeRadio.isSelected()) {
             price.setText("10.00");
+            updateCost();
         }
     }//GEN-LAST:event_pomeRadioActionPerformed
 
     private void strawRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strawRadioActionPerformed
         if (strawRadio.isSelected()) {
             price.setText("13.00");
+            updateCost();
         }
     }//GEN-LAST:event_strawRadioActionPerformed
 
     private void berryRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_berryRadioActionPerformed
         if (berryRadio.isSelected()) {
             price.setText("15.50");
+            updateCost();
         }
     }//GEN-LAST:event_berryRadioActionPerformed
 
     private void noSelectionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_noSelectionStateChanged
         if (noSelection.isSelected()) {
             price.setText("0.00");
+            updateCost();
         }
     }//GEN-LAST:event_noSelectionStateChanged
+
+    private void updateCost() {
+        if (editQuantity.getText().length() != 0) {
+            pricev = Double.parseDouble(price.getText());
+            quantityv = Integer.parseInt(editQuantity.getText());
+            costv = (pricev * quantityv) + extrav;
+            cost.setText(nf.format(costv));
+        }
+    }
+
+    private void energyCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_energyCheckActionPerformed
+        if (energyCheck.isSelected()) {
+            extrav += 5.00;
+            updateCost();
+        } else {
+            extrav -= 5.00;
+            updateCost();
+        }
+    }//GEN-LAST:event_energyCheckActionPerformed
+
+    private void ladiesCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ladiesCheckActionPerformed
+        if (ladiesCheck.isSelected()) {
+            extrav += 5.00;
+            updateCost();
+        } else {
+            extrav -= 5.00;
+            updateCost();
+        }
+    }//GEN-LAST:event_ladiesCheckActionPerformed
 
     /**
      * @param args the command line arguments
