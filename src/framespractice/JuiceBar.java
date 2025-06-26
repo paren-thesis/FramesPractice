@@ -530,19 +530,47 @@ public class JuiceBar extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        juicesSelection.clearSelection();
-        editQuantity.setText("");
+        editQuantity.setText("1");
         editQuantity.grabFocus();
         energyCheck.setSelected(false);
         ladiesCheck.setSelected(false);
+        cost.setText("$0.00");
+        tax.setText("$0.00");
+        subTotal.setText("$0.00");
+        amountDue.setText("$0.00");
+        orderComplete.setEnabled(false);
+        addToOrder.setEnabled(true);
+        noSelection.setSelected(true);
+        
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void orderCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderCompleteActionPerformed
-        // TODO add your handling code here:
+        if (noSelection.isSelected()) {
+            salesv += amtduev;
+            clientv++;
+            subtotal = 0;
+            amtduev = 0;
+            summeryReport.setEnabled(true);
+            addToOrder.setEnabled(false);
+            addToOrder.setEnabled(false);
+        } else {
+            if (JOptionPane.showConfirmDialog(rootPane, "Add this frink?", "Order Complete", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                addToOrder.doClick();
+            }
+            salesv += amtduev;
+            clientv++;
+            subtotal = 0;
+            amtduev = 0;
+            summeryReport.setEnabled(true);
+            addToOrder.setEnabled(false);
+            addToOrder.setEnabled(false);
+        }
     }//GEN-LAST:event_orderCompleteActionPerformed
 
     private void summeryReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_summeryReportActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Clients Served - " + clientv +
+                "\nJuice bought - " + juicev + "\nSmothies bought - " + smoothiesv +
+                "\nTotal Sales - " + nf.format(salesv));
     }//GEN-LAST:event_summeryReportActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -643,6 +671,7 @@ public class JuiceBar extends javax.swing.JFrame {
                 // Not juice
                 if (fruitRadio.isSelected() == true || veggieRadio.isSelected() == true) {
                     juicev += quantityv;
+                    orderComplete.setEnabled(true);
                 } else {
                     smoothiesv += quantityv;
                     //reset
