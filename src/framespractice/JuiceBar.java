@@ -394,6 +394,11 @@ public class JuiceBar extends javax.swing.JFrame {
         addToOrder.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         addToOrder.setForeground(new java.awt.Color(255, 255, 255));
         addToOrder.setText("ADD TO ORDER");
+        addToOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToOrderActionPerformed(evt);
+            }
+        });
 
         orderComplete.setBackground(new java.awt.Color(98, 0, 239));
         orderComplete.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -626,6 +631,31 @@ public class JuiceBar extends javax.swing.JFrame {
             updateCost();
         }
     }//GEN-LAST:event_ladiesCheckActionPerformed
+
+    private void addToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToOrderActionPerformed
+        try {
+            if (noSelection.isSelected() == true) {
+                JOptionPane.showMessageDialog(rootPane, "Select a drink");
+            } else {
+                subtotal += costv;
+                taxv = 0.035 * subtotal;
+                amtduev = subtotal + taxv;
+                subTotal.setText(nf.format(subtotal));
+                tax.setText(nf.format(taxv));
+                amountDue.setText(nf.format(amtduev));
+
+                // Not juice
+                if (fruitRadio.isSelected() == true || veggieRadio.isSelected() == true) {
+                    juicev += quantityv;
+                } else {
+                    smoothiesv += quantityv;
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.toString());
+        }
+    }//GEN-LAST:event_addToOrderActionPerformed
 
     /**
      * @param args the command line arguments
