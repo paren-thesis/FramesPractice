@@ -309,8 +309,8 @@ public class JuiceBar extends javax.swing.JFrame {
         editQuantity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         editQuantity.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         editQuantity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                editQuantityKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                editQuantityKeyReleased(evt);
             }
         });
 
@@ -336,14 +336,14 @@ public class JuiceBar extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(editQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(subTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tax, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(amountDue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(price, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(cost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(subTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tax, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(amountDue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -553,10 +553,6 @@ public class JuiceBar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void editQuantityKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editQuantityKeyTyped
-
-    }//GEN-LAST:event_editQuantityKeyTyped
-
     private void jPanel3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanel3PropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel3PropertyChange
@@ -649,6 +645,13 @@ public class JuiceBar extends javax.swing.JFrame {
                     juicev += quantityv;
                 } else {
                     smoothiesv += quantityv;
+                    //reset
+                    energyCheck.setSelected(false);
+                    ladiesCheck.setSelected(false);
+                    extrav = 0;
+                    noSelection.setSelected(true);
+                    editQuantity.setText("1");
+                    orderComplete.setEnabled(true);
                 }
             }
 
@@ -656,6 +659,10 @@ public class JuiceBar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, e.toString());
         }
     }//GEN-LAST:event_addToOrderActionPerformed
+
+    private void editQuantityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editQuantityKeyReleased
+        updateCost();
+    }//GEN-LAST:event_editQuantityKeyReleased
 
     /**
      * @param args the command line arguments
