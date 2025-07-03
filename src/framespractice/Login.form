@@ -151,6 +151,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="exitB">
           <Properties>
@@ -159,6 +162,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Exit"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitBActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="passwordA">
           <Properties>

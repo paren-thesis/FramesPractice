@@ -5,6 +5,10 @@
  */
 package framespractice;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Prosper
@@ -16,6 +20,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = dm.width / 2 - this.getWidth() / 2;
+        int y = dm.height / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
+        this.setTitle("Login");
     }
 
     /**
@@ -60,9 +69,19 @@ public class Login extends javax.swing.JFrame {
 
         registerB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         registerB.setText("Register");
+        registerB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBActionPerformed(evt);
+            }
+        });
 
         exitB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         exitB.setText("Exit");
+        exitB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBActionPerformed(evt);
+            }
+        });
 
         passwordA.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
@@ -143,6 +162,18 @@ public class Login extends javax.swing.JFrame {
     private void loginBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginBActionPerformed
+
+    private void registerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBActionPerformed
+        Register rg = new Register();
+        rg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerBActionPerformed
+
+    private void exitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION, 0) == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_exitBActionPerformed
 
     /**
      * @param args the command line arguments

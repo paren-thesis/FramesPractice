@@ -5,6 +5,10 @@
  */
 package framespractice;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Prosper
@@ -16,6 +20,11 @@ public class Register extends javax.swing.JFrame {
      */
     public Register() {
         initComponents();
+        Dimension dm = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = dm.width / 2 - this.getWidth() / 2;
+        int y = dm.height / 2 - this.getHeight() / 2;
+        this.setLocation(x, y);
+        this.setTitle("Register");
     }
 
     /**
@@ -67,16 +76,27 @@ public class Register extends javax.swing.JFrame {
 
         loginB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         loginB.setText("Login");
+        loginB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginBActionPerformed(evt);
+            }
+        });
 
         exitB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         exitB.setText("Exit");
+        exitB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBActionPerformed(evt);
+            }
+        });
 
         passwordA.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jLabel4.setText("Password:");
 
-        jLabel5.setText("-----Already have an account?------");
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("-----Already have an account?-----");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -102,11 +122,11 @@ public class Register extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(registerB, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(loginB, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitB, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(registerB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(loginB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(exitB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE))
                         .addGap(103, 103, 103))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -157,6 +177,18 @@ public class Register extends javax.swing.JFrame {
     private void registerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerBActionPerformed
+
+    private void loginBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBActionPerformed
+        Login lg = new Login();
+        lg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginBActionPerformed
+
+    private void exitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBActionPerformed
+        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION, 0) == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_exitBActionPerformed
 
     /**
      * @param args the command line arguments
