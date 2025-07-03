@@ -392,7 +392,7 @@ public class JuiceBar extends javax.swing.JFrame {
 
         addToOrder.setBackground(new java.awt.Color(98, 0, 239));
         addToOrder.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        addToOrder.setForeground(new java.awt.Color(255, 255, 255));
+        addToOrder.setForeground(new java.awt.Color(255, 255, 258));
         addToOrder.setText("ADD TO ORDER");
         addToOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
