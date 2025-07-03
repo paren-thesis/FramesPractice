@@ -87,7 +87,7 @@ public class Register extends javax.swing.JFrame {
         });
 
         exitB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        exitB.setText("Exit");
+        exitB.setText("Cancel");
         exitB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBActionPerformed(evt);
@@ -223,9 +223,11 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_loginBActionPerformed
 
     private void exitBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBActionPerformed
-        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION, 0) == 0) {
-            System.exit(0);
-        }
+        txtcpass.setText(null);
+        txtemail.setText(null);
+        txtname.setText(null);
+        txtphone.setText(null);
+        txtpass.setText(null);
     }//GEN-LAST:event_exitBActionPerformed
 
     private void txtphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneActionPerformed

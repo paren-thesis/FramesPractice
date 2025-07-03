@@ -385,14 +385,13 @@ public class JuiceBar extends javax.swing.JFrame {
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
         jLabel2.setText("HTU Juice Bar");
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         addToOrder.setBackground(new java.awt.Color(98, 0, 239));
         addToOrder.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        addToOrder.setForeground(new java.awt.Color(255, 255, 258));
+        addToOrder.setForeground(new java.awt.Color(255, 255, 255));
         addToOrder.setText("ADD TO ORDER");
         addToOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

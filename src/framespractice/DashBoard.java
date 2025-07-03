@@ -108,18 +108,18 @@ public class DashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        SSNIT ss = new SSNIT();
-        ss.setVisible(true);
+        
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        SSNIT ss = new SSNIT();
+        ss.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-        JuiceBar jb = new JuiceBar();
-        jb.setVisible(true);
+        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure", "Confirm", JOptionPane.YES_NO_OPTION, 0) == 0) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
