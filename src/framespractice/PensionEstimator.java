@@ -237,7 +237,44 @@ public class PensionEstimator extends javax.swing.JFrame {
     }//GEN-LAST:event_bResetActionPerformed
 
     private void bEstimateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEstimateActionPerformed
-        
+        // Estimate button logic: parse inputs, calculate, and display results
+        try {
+            // Parse date of birth and retirement date
+            LocalDate dob = LocalDate.parse(fDateOfBirth.getText().trim());
+            LocalDate dor = LocalDate.parse(fDateOfRet.getText().trim());
+
+            // Parse number of months contributed
+            int months = Integer.parseInt(fNumberOfMonths.getText().trim());
+
+            // Parse the three best years' salaries
+            double yr1 = Double.parseDouble(fYear1.getText().trim());
+            double yr2 = Double.parseDouble(fYear2.getText().trim());
+            double yr3 = Double.parseDouble(fYear3.getText().trim());
+
+            // Create MyRetirement object
+            MyRetirement retire = new MyRetirement(yr1, yr2, yr3, dob, dor, months);
+
+            // Calculate values
+            double avgSalary = retire.averagesalary();
+            int retireAge = retire.retireage();
+            double annualPension = retire.annualpension();
+            double monthlyPension = retire.monthlypension();
+            double pensionRight = retire.pensionright();
+
+            // Build result message
+            StringBuilder sb = new StringBuilder();
+            sb.append("Retirement Age: ").append(retireAge).append(" years\n");
+            sb.append("Average Salary: ").append(String.format("%.2f", avgSalary)).append("\n");
+            sb.append("Annual Pension: ").append(String.format("%.2f", annualPension)).append("\n");
+            sb.append("Monthly Pension: ").append(String.format("%.2f", monthlyPension)).append("\n");
+            sb.append("Pension Right: ").append(String.format("%.2f", pensionRight)).append("%\n");
+
+            // Show results in a message dialog
+            javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "Pension Estimate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception ex) {
+            // Show any exception in a message dialog
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bEstimateActionPerformed
 
     /**
