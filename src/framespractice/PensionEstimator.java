@@ -71,9 +71,19 @@ public class PensionEstimator extends javax.swing.JFrame {
 
         buttonGroup1.add(rPNDC);
         rPNDC.setText("PNDC Law 247");
+        rPNDC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rPNDCActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rAct);
         rAct.setText("Act 766");
+        rAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rActActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -276,6 +286,52 @@ public class PensionEstimator extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bEstimateActionPerformed
+
+    private void rPNDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPNDCActionPerformed
+        // PNDC Law 247 radio button checked change event
+        validatePensionQualification("PNDC Law 247", 240);
+    }//GEN-LAST:event_rPNDCActionPerformed
+
+    private void rActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActActionPerformed
+        // Act 766 radio button checked change event
+        validatePensionQualification("Act 766", 180);
+    }//GEN-LAST:event_rActActionPerformed
+
+    /**
+     * Validates pension qualification based on selected scheme
+     * @param schemeName Name of the pension scheme
+     * @param requiredMonths Minimum months required for full pension
+     */
+    private void validatePensionQualification(String schemeName, int requiredMonths) {
+        try {
+            // Check if months contributed textbox is not empty
+            String monthsText = fNumberOfMonths.getText().trim();
+            if (!monthsText.isEmpty()) {
+                int months = Integer.parseInt(monthsText);
+                
+                // Parse date of birth to calculate age
+                LocalDate dob = LocalDate.parse(fDateOfBirth.getText().trim());
+                LocalDate currentDate = LocalDate.now();
+                int age = currentDate.getYear() - dob.getYear();
+                
+                // Check if contributor qualifies for full pension
+                boolean qualifiesForFullPension = (age >= 55) && (months >= requiredMonths);
+                
+                if (!qualifiesForFullPension) {
+                    // Show message and focus on months textbox
+                    String message = "You do not qualify for full pension under " + schemeName + ".\n";
+                    message += "Requirements: Age 55+ and " + requiredMonths + " months minimum contribution.\n";
+                    message += "Your age: " + age + " years, Months contributed: " + months;
+                    
+                    javax.swing.JOptionPane.showMessageDialog(this, message, "Pension Qualification", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    fNumberOfMonths.requestFocus();
+                }
+            }
+        } catch (Exception ex) {
+            // Show any exception in a message dialog
+            javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      * @param args the command line arguments
