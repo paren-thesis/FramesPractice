@@ -222,9 +222,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fNumberOfMonths">
-      <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusAdapter" parameters="java.awt.event.FocusEvent" handler="fNumberOfMonthsFocusLost"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

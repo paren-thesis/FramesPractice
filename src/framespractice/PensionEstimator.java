@@ -285,7 +285,8 @@ public class PensionEstimator extends javax.swing.JFrame {
             sb.append("Pension Right: ").append(String.format("%.2f", pensionRight)).append("%\n");
 
             // Show results in a message dialog
-            javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "Pension Estimate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            //javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "Pension Estimate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            display.setText(sb.toString());
         } catch (Exception ex) {
             // Show any exception in a message dialog
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Input Error", javax.swing.JOptionPane.ERROR_MESSAGE);
