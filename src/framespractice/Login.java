@@ -68,7 +68,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         registerB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        registerB.setText("Register");
+        registerB.setText("Sign Up");
         registerB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBActionPerformed(evt);
@@ -76,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         bclose.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        bclose.setText("Close");
+        bclose.setText("Cancel");
         bclose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bcloseActionPerformed(evt);
@@ -175,9 +175,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_registerBActionPerformed
 
     private void bcloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bcloseActionPerformed
-        if (JOptionPane.showConfirmDialog(rootPane, "Are you sure you want to exit?", "Confirm", JOptionPane.YES_NO_OPTION, 0) == 0) {
-            System.exit(0);
-        }
+        txtname.setText(null);
+        txtpass.setText(null);
+        txtname.grabFocus();
     }//GEN-LAST:event_bcloseActionPerformed
 
     /**
