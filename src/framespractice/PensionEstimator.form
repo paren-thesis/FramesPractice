@@ -199,6 +199,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="PNDC Law 247"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rPNDCActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rAct">
           <Properties>
@@ -207,6 +210,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Act 766"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rActActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -216,6 +222,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fNumberOfMonths">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusAdapter" parameters="java.awt.event.FocusEvent" handler="fNumberOfMonthsFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>

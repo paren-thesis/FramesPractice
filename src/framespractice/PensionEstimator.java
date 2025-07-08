@@ -39,6 +39,11 @@ public class PensionEstimator extends javax.swing.JFrame {
         rAct = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         fNumberOfMonths = new javax.swing.JTextField();
+        fNumberOfMonths.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fNumberOfMonthsFocusLost(evt);
+            }
+        });
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         fYear1 = new javax.swing.JTextField();
@@ -332,6 +337,16 @@ public class PensionEstimator extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void fNumberOfMonthsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fNumberOfMonthsFocusLost
+        // Leave event for number of months contributed textbox
+        // Call validation for both pension schemes
+        if (rPNDC.isSelected()) {
+            validatePensionQualification("PNDC Law 247", 240);
+        } else if (rAct.isSelected()) {
+            validatePensionQualification("Act 766", 180);
+        }
+    }//GEN-LAST:event_fNumberOfMonthsFocusLost
 
     /**
      * @param args the command line arguments
