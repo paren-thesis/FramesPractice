@@ -7,6 +7,10 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -165,7 +169,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloginActionPerformed
-        // TODO add your handling code here:
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String dbpath = "jdbc:derby://localhost:1527/BICT212";
+            Connection con = DriverManager.getConnection(dbpath, "sa", "1234");
+            Statement st = con.createStatement();
+            String mm = "SELECT * FROM login where username = '" + txtname.getText() +
+                    "' and password = '" + txtpass.getText()+ "'";
+            ResultSet rs = st.executeQuery(mm);
+            if (rs.next()) {
+                DashBoard ds = new DashBoard();
+                this.setVisible(false);
+                ds.setVisible(true);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
     }//GEN-LAST:event_bloginActionPerformed
 
     private void registerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBActionPerformed
