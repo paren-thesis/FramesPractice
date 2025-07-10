@@ -26,9 +26,17 @@ public class DBConnection {
             st.execute(qry);
             JOptionPane.showMessageDialog(null, "Table created");**/
             
-            String qry = "INSERT INTO login values('0323419001', 'Test', '@1234?@')";
-            st.execute(qry);
-            JOptionPane.showMessageDialog(null, "Record added");
+//            String qry = "INSERT INTO login values('0323419001', 'Test', '@1234?@')";
+//            st.execute(qry);
+//            JOptionPane.showMessageDialog(null, "Record added");
+            // Pull data
+            String mm = "SELECT * FROM login";
+            ResultSet rs = st.executeQuery(mm);
+            while (rs.next()) {
+               JOptionPane.showMessageDialog(null, rs.getString(1) + "\n" +
+                       rs.getString(2) + "\n" +
+                       rs.getString(3) + "\n");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
