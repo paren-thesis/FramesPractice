@@ -239,16 +239,16 @@ public class PensionEstimator extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void bResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetActionPerformed
-     fNumberOfMonths.setText("");
-     display.setText("");
-     LocalDate ld = LocalDate.now();
-     String n = ld.toString();
-     fDateOfBirth.setText(n);
-     fDateOfRet.setText(n);
-     rAct.setSelected(true);
-     fYear1.setText("0.00");
-     fYear2.setText("0.00");
-     fYear3.setText("0.00");
+        fNumberOfMonths.setText("");
+        display.setText("");
+        LocalDate ld = LocalDate.now();
+        String n = ld.toString();
+        fDateOfBirth.setText(n);
+        fDateOfRet.setText(n);
+        rAct.setSelected(true);
+        fYear1.setText("0.00");
+        fYear2.setText("0.00");
+        fYear3.setText("0.00");
     }//GEN-LAST:event_bResetActionPerformed
 
     private void bEstimateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEstimateActionPerformed
@@ -284,8 +284,6 @@ public class PensionEstimator extends javax.swing.JFrame {
             sb.append("Monthly Pension: ").append(String.format("%.2f", monthlyPension)).append("\n");
             sb.append("Pension Right: ").append(String.format("%.2f", pensionRight)).append("%\n");
 
-            // Show results in a message dialog
-            //javax.swing.JOptionPane.showMessageDialog(this, sb.toString(), "Pension Estimate", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             display.setText(sb.toString());
         } catch (Exception ex) {
             // Show any exception in a message dialog
@@ -294,41 +292,34 @@ public class PensionEstimator extends javax.swing.JFrame {
     }//GEN-LAST:event_bEstimateActionPerformed
 
     private void rPNDCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rPNDCActionPerformed
-        // PNDC Law 247 radio button checked change event
         validatePensionQualification("PNDC Law 247", 240);
     }//GEN-LAST:event_rPNDCActionPerformed
 
     private void rActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rActActionPerformed
-        // Act 766 radio button checked change event
         validatePensionQualification("Act 766", 180);
     }//GEN-LAST:event_rActActionPerformed
 
-    /**
-     * Validates pension qualification based on selected scheme
-     * @param schemeName Name of the pension scheme
-     * @param requiredMonths Minimum months required for full pension
-     */
     private void validatePensionQualification(String schemeName, int requiredMonths) {
         try {
             // Check if months contributed textbox is not empty
             String monthsText = fNumberOfMonths.getText().trim();
             if (!monthsText.isEmpty()) {
                 int months = Integer.parseInt(monthsText);
-                
+
                 // Parse date of birth to calculate age
                 LocalDate dob = LocalDate.parse(fDateOfBirth.getText().trim());
                 LocalDate currentDate = LocalDate.now();
                 int age = currentDate.getYear() - dob.getYear();
-                
+
                 // Check if contributor qualifies for full pension
                 boolean qualifiesForFullPension = (age >= 55) && (months >= requiredMonths);
-                
+
                 if (!qualifiesForFullPension) {
                     // Show message and focus on months textbox
                     String message = "You do not qualify for full pension under " + schemeName + ".\n";
                     message += "Requirements: Age 55+ and " + requiredMonths + " months minimum contribution.\n";
                     message += "Your age: " + age + " years, Months contributed: " + months;
-                    
+
                     javax.swing.JOptionPane.showMessageDialog(this, message, "Pension Qualification", javax.swing.JOptionPane.WARNING_MESSAGE);
                     fNumberOfMonths.requestFocus();
                 }
