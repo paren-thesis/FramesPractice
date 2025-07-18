@@ -7,6 +7,9 @@ package framespractice;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,12 +49,13 @@ public class Register extends javax.swing.JFrame {
         loginB = new javax.swing.JButton();
         exitB = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtphone = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtpass = new javax.swing.JPasswordField();
         txtcpass = new javax.swing.JPasswordField();
+        jLabel8 = new javax.swing.JLabel();
+        txtIndex = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,7 +75,7 @@ public class Register extends javax.swing.JFrame {
         txtemail.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
         registerB.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        registerB.setText("Register");
+        registerB.setText("Sign Up");
         registerB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerBActionPerformed(evt);
@@ -97,9 +101,6 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jLabel4.setText("Confirm Password:");
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("-----Already have an account?-----");
-
         txtphone.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         txtphone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +123,11 @@ public class Register extends javax.swing.JFrame {
 
         txtcpass.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jLabel8.setText("IndexNo:");
+
+        txtIndex.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,42 +138,50 @@ public class Register extends javax.swing.JFrame {
                         .addGap(171, 171, 171)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addGap(60, 60, 60)
-                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel4))
-                                    .addGap(60, 60, 60)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                        .addComponent(txtphone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                        .addComponent(txtpass, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtcpass, javax.swing.GroupLayout.Alignment.LEADING))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(registerB, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(exitB, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
+                        .addComponent(loginB, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(registerB, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(exitB, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(loginB, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel4))
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtemail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtphone, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtpass, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtcpass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtIndex, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(60, 60, 60)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(39, 39, 39))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtIndex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -187,13 +201,11 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtcpass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(registerB)
                     .addComponent(exitB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginB)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -213,7 +225,23 @@ public class Register extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void registerBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBActionPerformed
-        // TODO add your handling code here:
+        try {
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String dburl = "jdbc:derby://localhost:1527/BICT212";
+            Connection con = DriverManager.getConnection(dburl, "sa", "1234");
+            Statement st = con.createStatement();
+            String qry1 = "INSERT INTO login VALUES('" + txtIndex.getText() + "','" 
+                    + txtemail.getText() + "','" + txtpass.getText() + "')";
+            String qry2 = "INSERT INTO students VALUES('" + txtIndex.getText() +
+                    "','" + txtname.getText() + "','" + txtemail.getText() + "','" + txtphone.getText() + "')";
+
+            st.execute(qry1);
+            st.execute(qry2);
+            JOptionPane.showMessageDialog(rootPane, "You force");
+            exitB.doClick();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.toString());
+        }
     }//GEN-LAST:event_registerBActionPerformed
 
     private void loginBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBActionPerformed
@@ -228,6 +256,8 @@ public class Register extends javax.swing.JFrame {
         txtname.setText(null);
         txtphone.setText(null);
         txtpass.setText(null);
+        txtIndex.setText(null);
+        txtIndex.grabFocus();
     }//GEN-LAST:event_exitBActionPerformed
 
     private void txtphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphoneActionPerformed
@@ -279,12 +309,13 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginB;
     private javax.swing.JButton registerB;
+    private javax.swing.JTextField txtIndex;
     private javax.swing.JPasswordField txtcpass;
     private javax.swing.JTextField txtemail;
     private javax.swing.JTextField txtname;
