@@ -121,6 +121,7 @@ public class CalcForm extends javax.swing.JFrame {
         );
 
         cals.setText("Calculate");
+        cals.setEnabled(false);
 
         nn.setText("  New  ");
 

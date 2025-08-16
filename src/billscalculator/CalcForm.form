@@ -235,6 +235,7 @@
     <Component class="javax.swing.JButton" name="cals">
       <Properties>
         <Property name="text" type="java.lang.String" value="Calculate"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="nn">
