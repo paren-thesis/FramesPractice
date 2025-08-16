@@ -6,6 +6,7 @@
 package billscalculator;
 
 import java.text.NumberFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -124,6 +125,11 @@ public class CalcForm extends javax.swing.JFrame {
 
         cals.setText("Calculate");
         cals.setEnabled(false);
+        cals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calsActionPerformed(evt);
+            }
+        });
 
         nn.setText("  New  ");
         nn.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +230,23 @@ public class CalcForm extends javax.swing.JFrame {
         nn.setEnabled(false);
         gow.grabFocus();
     }//GEN-LAST:event_nnActionPerformed
+
+    private void calsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calsActionPerformed
+        if (gow.getText().equals("") || koe.getText().equals("") || moc.getText().equals("")) {
+            StringBuilder sb = new StringBuilder();
+            if (gow.getText().equals("")) {
+                sb.append("Provide value for gallons of water\n");
+            }
+            if (koe.getText().equals("")) {
+                sb.append("Provide value for kilowatts of electricity\n");
+            }
+            if (moc.getText().equals("")) {
+                sb.append("Provide value for minutes of call");
+            }
+            JOptionPane.showMessageDialog(rootPane, sb, "No value(s) found", 0);
+        } else {
+        }
+    }//GEN-LAST:event_calsActionPerformed
 
     /**
      * @param args the command line arguments
