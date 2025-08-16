@@ -253,6 +253,22 @@ public class CalcForm extends javax.swing.JFrame {
             }
             JOptionPane.showMessageDialog(rootPane, sb, "No value(s) found", 0);
         } else {
+            try {
+                double gallonsOfW = Double.parseDouble(gow.getText());
+                double minutesOfC = Double.parseDouble(moc.getText());
+                double kilowattsOfE = Double.parseDouble(koe.getText());
+
+                MyBill mb = new MyBill(gallonsOfW, minutesOfC, kilowattsOfE);
+
+                java.text.NumberFormat nf = NumberFormat.getCurrencyInstance();
+
+                wb.setText(nf.format(mb.waterBill()));
+                eb.setText(nf.format(mb.electricityBill()));
+                tb.setText(nf.format(mb.telephoneBill()));
+                ttb.setText(nf.format(mb.totalBill()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(rootPane, e.toString());
+            }
         }
     }//GEN-LAST:event_calsActionPerformed
 
