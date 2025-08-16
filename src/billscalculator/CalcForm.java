@@ -5,6 +5,8 @@
  */
 package billscalculator;
 
+import java.text.NumberFormat;
+
 /**
  *
  * @author Prosper
@@ -124,6 +126,11 @@ public class CalcForm extends javax.swing.JFrame {
         cals.setEnabled(false);
 
         nn.setText("  New  ");
+        nn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nnActionPerformed(evt);
+            }
+        });
 
         info.setText("  Info  ");
 
@@ -203,6 +210,20 @@ public class CalcForm extends javax.swing.JFrame {
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exitActionPerformed
+
+    private void nnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nnActionPerformed
+        gow.setText(null);
+        koe.setText(null);
+        moc.setText(null);
+        java.text.NumberFormat nf = NumberFormat.getCurrencyInstance();
+        wb.setText(nf.format(0));
+        eb.setText(nf.format(0));
+        tb.setText(nf.format(0));
+        ttb.setText(nf.format(0));
+        cals.setEnabled(true);
+        nn.setEnabled(false);
+        gow.grabFocus();
+    }//GEN-LAST:event_nnActionPerformed
 
     /**
      * @param args the command line arguments
