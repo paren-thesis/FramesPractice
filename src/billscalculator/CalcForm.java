@@ -147,6 +147,11 @@ public class CalcForm extends javax.swing.JFrame {
         });
 
         info.setText("  Info  ");
+        info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoActionPerformed(evt);
+            }
+        });
 
         exit.setText("Exit");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -274,6 +279,11 @@ public class CalcForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_calsActionPerformed
+
+    private void infoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoActionPerformed
+        String message = "This is a simple Bills calculator\nIt can be used to calculate:\n  Water Bill\n  Electricity Bill\n  And Telephone Bill";
+        JOptionPane.showMessageDialog(rootPane, message);
+    }//GEN-LAST:event_infoActionPerformed
 
     /**
      * @param args the command line arguments
