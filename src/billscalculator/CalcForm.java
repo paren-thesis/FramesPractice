@@ -222,7 +222,10 @@ public class CalcForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
-        // TODO add your handling code here:
+        int option = JOptionPane.showConfirmDialog(rootPane, "Are you sure you want ot exit?", "Confirm", 0,1);
+        if (option == 0) {
+            System.exit(option);
+        }
     }//GEN-LAST:event_exitActionPerformed
 
     private void nnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nnActionPerformed
