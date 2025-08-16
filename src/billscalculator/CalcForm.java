@@ -66,9 +66,17 @@ public class CalcForm extends javax.swing.JFrame {
 
         jLabel5.setText("Water Bill");
 
+        wb.setEditable(false);
+
         jLabel6.setText("Electricity Bill");
 
+        eb.setEditable(false);
+
         jLabel7.setText("Telephone Bill");
+
+        tb.setEditable(false);
+
+        ttb.setEditable(false);
 
         jLabel8.setText("Total Bill");
 

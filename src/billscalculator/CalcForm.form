@@ -208,6 +208,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="wb">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -215,6 +218,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="eb">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -222,8 +228,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tb">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="ttb">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
